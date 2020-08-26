@@ -1,0 +1,29 @@
+{
+    "name": "zain-ui",
+    "version": "1.0.0",
+    "author": "ZainChen",
+    "description": "zain-ui",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/zainote/zain-ui.git"
+    },
+    "homepage": "https://github.com/zainote/zain-ui#readme",
+    "bugs": {
+        "url": "https://github.com/zainote/zain-ui/issues"
+    },
+    "keywords": [
+        "zain-ui",
+        "zain",
+        "ZainChen"
+    ],
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "devDependencies": {
+        "react": "^16.13.1",
+        "react-dom": "^16.13.1",
+        "webpack": "^4.44.1"
+    }
+}
