@@ -57,7 +57,6 @@ module.exports = {
         // 使 web 端能获取到环境变量（必须用'process.env.BUILD_ENV'获取，只用'process'获取不到，而且会报错）
         new webpack.DefinePlugin({
             'process.env.BUILD_ENV': JSON.stringify('development'),
-            'process.env.PORT_ENV': JSON.stringify('web'),
             'process.env.HOT_ENV': JSON.stringify('true'),
             'process.env.PLAIN_HMR': JSON.stringify('false')
         })

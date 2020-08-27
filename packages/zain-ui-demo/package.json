@@ -19,8 +19,8 @@
     ],
     "main": "index.js",
     "scripts": {
-        "dev-web": "cross-env BUILD_ENV=development PORT_ENV=web HOT_ENV=true webpack-dev-server --open --config ./configs/webpack.config.dev.babel.js",
-        "prod-web-build": "cross-env BUILD_ENV=production PORT_ENV=web HOT_ENV=false webpack --config ./configs/webpack.config.prod.babel.js"
+        "dev": "cross-env BUILD_ENV=development HOT_ENV=true webpack-dev-server --open --config ./configs/webpack.config.dev.babel.js",
+        "build": "cross-env BUILD_ENV=production HOT_ENV=false webpack --config ./configs/webpack.config.prod.babel.js"
     },
     "dependencies": {
         "@types/react": "^16.9.47",

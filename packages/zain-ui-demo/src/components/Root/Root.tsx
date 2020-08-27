@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
 
-class Root extends Component {
+export class Root extends Component {
     render(): JSX.Element {
         return (
-            <div>root</div>
+            <div>root 11</div>
         );
     }
 }
-
-export default Root;
