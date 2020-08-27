@@ -138,11 +138,6 @@ module.exports = {
             }
         ]
     },
-    node: {
-        __dirname: false,
-        __filename: false,
-        fs: 'empty'
-    },
     devServer: {
         port,
         hot: true
