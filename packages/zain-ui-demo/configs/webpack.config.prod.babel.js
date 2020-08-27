@@ -141,9 +141,9 @@ module.exports = {
             }
         ]
     },
-    node: {
-        __dirname: false,
-        __filename: false,
-        fs: 'empty'
-    }
+    // node: {
+    //     __dirname: false,
+    //     __filename: false,
+    //     fs: 'empty'
+    // }
 };

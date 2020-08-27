@@ -1,8 +1,8 @@
 import React from 'react';
 import { render } from "react-dom";
-import { HotRoot } from 'src/HotRoot';
+import Root from 'src/Root';
 
 render(
-    <HotRoot />,
+    <Root />,
     document.getElementById('root')
 );

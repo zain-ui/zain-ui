@@ -4,6 +4,7 @@ import { CleanWebpackPlugin } from 'clean-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 import WebpackBar from 'webpackbar';
+import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin'
 
 /**
  * 编译渲染进程、开发环境、web端
@@ -18,7 +19,6 @@ module.exports = {
     devtool: 'inline-source-map',
     entry: {
         index: [
-            'react-hot-loader/patch',
             path.join(__dirname, '..', 'src//index.tsx')
         ]
     },
@@ -32,8 +32,7 @@ module.exports = {
             // 模块导入别名，指定后可以在文件之直接 import * from 'src/*';
             src: path.resolve(__dirname, '../src/'),
             // 模块导入别名，指定后可以在文件之直接 import * from 'assets/*';
-            assets: path.resolve(__dirname, '../assets/'),
-            'react-dom': '@hot-loader/react-dom'
+            assets: path.resolve(__dirname, '../assets/')
         }
     },
     plugins: [
@@ -54,6 +53,7 @@ module.exports = {
             filename: 'index.html',
             template: path.join(__dirname, '..', 'src/page/index.html')
         }),
+        new ReactRefreshWebpackPlugin(),
         // 使 web 端能获取到环境变量（必须用'process.env.BUILD_ENV'获取，只用'process'获取不到，而且会报错）
         new webpack.DefinePlugin({
             'process.env.BUILD_ENV': JSON.stringify('development'),

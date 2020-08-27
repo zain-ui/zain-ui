@@ -1,4 +1,4 @@
-const developmentPlugins = [require('react-hot-loader/babel')];
+const developmentPlugins = [require('react-refresh/babel')];
 
 const productionPlugins = [
     // babel-preset-react-optimize
