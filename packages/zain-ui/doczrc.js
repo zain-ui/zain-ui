@@ -1,8 +1,10 @@
 export default {
     title: 'Zain UI',
     menu: ['Getting Started', 'Components'],
-    base: '/zain-ui',
-    dest: '/build',
+    /** GitHub Pages 指定在哪个子目录中部署文件 */
+    base: '/docz',
+    /** build 构建输出目标文件夹 */
+    dest: '../../docs',
     typescript: true,
     themeConfig: {
         /** 默认代码不展开 */
