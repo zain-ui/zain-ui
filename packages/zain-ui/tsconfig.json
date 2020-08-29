@@ -2,7 +2,7 @@
     // 官方说明文档：https://www.tslang.cn/docs/handbook/tsconfig-json.html
     "compilerOptions": {
         // 指定ECMAScript目标版本 "ES3"（默认）， "ES5"， "ES6"/ "ES2015"， "ES2016"， "ES2017"或 "ESNext"。注意： "ESNext"最新的生成目标列表为 ES proposed features
-        "target": "ESNext",
+        "target": "es2015",
         // 定生成哪个模块系统代码： "None"， "CommonJS"， "AMD"， "System"， "UMD"， "ES6"或 "ES2015"。
         "module": "CommonJS",
         // 在表达式和声明上有隐含的 any 类型时报错。
@@ -15,6 +15,14 @@
         "esModuleInterop": true,
         // 指定模块解析策略：'node'（Node）或'classic'（TypeScript 1.6之前的版本）。
         "moduleResolution": "node",
+        // 启用所有严格的类型检查选项。 需要TypeScript 2.3或更高版本。
+        // "strict": true,
+        // 包括以“ .json”扩展名导入的模块。 需要TypeScript 2.9或更高版本。
+        "resolveJsonModule": true,
+        // 跳过声明文件的类型检查。 需要TypeScript 2.0或更高版本。
+        "skipLibCheck": false,
+        // 不要发射输出。
+        "noEmit": true,
         // 当生成文件时指定行结束符： "crlf"（windows）或 "lf"（unix）。
         "newLine": "lf",
         // 指定输入文件的根目录。 用于通过--outDir控制输出目录结构。
