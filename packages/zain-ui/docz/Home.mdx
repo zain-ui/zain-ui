@@ -4,3 +4,35 @@ route: /
 ---
 
 # Zain UI
+
+```tsx
+import { usePrismTheme } from '~utils/theme'
+import * as styles from './styles'
+import * as Icons from '../Icons'
+
+const getResizableProps = (width, setWidth) => ({
+    minWidth: 260,
+    maxWidth: '100%',
+    size: {
+        width: width,
+        height: 'auto',
+    },
+    style: {
+        margin: 0,
+        marginRight: 'auto',
+    },
+    enable: {
+        top: false,
+        right: true,
+        bottom: false,
+        left: false,
+        topRight: false,
+        bottomRight: false,
+        bottomLeft: false,
+        topLeft: false,
+    },
+    onResizeStop: (e, direction, ref) => {
+        setWidth(ref.style.width)
+    },
+})
+```

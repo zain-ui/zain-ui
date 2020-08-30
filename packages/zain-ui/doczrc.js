@@ -1,5 +1,7 @@
 export default {
+    /** 标题 */
     title: 'Zain UI',
+    /** 菜单 */
     menu: ['Getting Started', 'Components'],
     /** 忽略文件 */
     ignore: ['README.DEV.md'],
@@ -7,10 +9,6 @@ export default {
     base: '/zain-ui',
     /** build 构建输出目标文件夹 */
     dest: '../../docs',
-    typescript: true,
-    themeConfig: {
-        mode: 'dark',
-        /** 默认代码不展开 */
-        showPlaygroundEditor: false
-    }
+    /** 启用 Typescript */
+    typescript: true
 }
