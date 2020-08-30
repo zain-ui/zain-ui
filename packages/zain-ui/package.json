@@ -20,8 +20,7 @@
     "main": "index.js",
     "scripts": {
         "dev": "docz dev",
-        "build": "docz build",
-        "serve": "docz serve"
+        "build": "docz build"
     },
     "dependencies": {
         "@material-ui/core": "^4.11.0",
