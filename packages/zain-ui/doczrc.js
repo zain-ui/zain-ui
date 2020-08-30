@@ -9,6 +9,7 @@ export default {
     dest: '../../docs',
     typescript: true,
     themeConfig: {
+        mode: 'dark',
         /** 默认代码不展开 */
         showPlaygroundEditor: false
     }

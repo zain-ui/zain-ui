@@ -26,7 +26,7 @@
         // 当生成文件时指定行结束符： "crlf"（windows）或 "lf"（unix）。
         "newLine": "lf",
         // 指定输入文件的根目录。 用于通过--outDir控制输出目录结构。
-        "rootDir": "./src",
+        "rootDir": "./components",
         // 重定向输出目录。
         "outDir": "./out",
         // 解析非相对模块名的基准目录。查看 模块解析文档了解详情(https://www.tslang.cn/docs/handbook/module-resolution.html#base-url)。

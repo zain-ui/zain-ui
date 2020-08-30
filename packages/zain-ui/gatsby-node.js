@@ -10,7 +10,7 @@ exports.onCreateWebpackConfig = args => {
              */
             modules: [path.resolve(__dirname, '..'), 'node_modules'],
             alias: {
-                'zain-ui': path.resolve(__dirname, '../src')
+                'zain-ui': path.resolve(__dirname, '../components')
             },
         },
     })
