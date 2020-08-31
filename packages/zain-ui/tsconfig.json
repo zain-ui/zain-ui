@@ -2,7 +2,7 @@
     // 官方说明文档：https://www.tslang.cn/docs/handbook/tsconfig-json.html
     "compilerOptions": {
         // 指定ECMAScript目标版本 "ES3"（默认）， "ES5"， "ES6"/ "ES2015"， "ES2016"， "ES2017"或 "ESNext"。注意： "ESNext"最新的生成目标列表为 ES proposed features
-        "target": "es2015",
+        "target": "ESNext",
         // 定生成哪个模块系统代码： "None"， "CommonJS"， "AMD"， "System"， "UMD"， "ES6"或 "ES2015"。
         "module": "CommonJS",
         // 在表达式和声明上有隐含的 any 类型时报错。
@@ -11,6 +11,8 @@
         "sourceMap": false,
         // 指定JSX代码生成：“保留”，“反应”或“反应本机”
         "jsx": "react",
+        // 允许从模块进行默认导入而没有默认导出。 这不影响代码发出，仅影响类型检查。
+        "allowSyntheticDefaultImports": true,
         // 实现类型系统兼容性。（tsx 文件 import React from 'react'; 需要为 true）
         "esModuleInterop": true,
         // 指定模块解析策略：'node'（Node）或'classic'（TypeScript 1.6之前的版本）。
@@ -21,28 +23,28 @@
         "resolveJsonModule": true,
         // 跳过声明文件的类型检查。 需要TypeScript 2.0或更高版本。
         "skipLibCheck": false,
-        // 不要发射输出。
-        "noEmit": true,
         // 当生成文件时指定行结束符： "crlf"（windows）或 "lf"（unix）。
         "newLine": "lf",
+        // 生成相应的d.ts文件。
+        "declaration": true,
+        // 指定生成的声明文件的输出目录。 需要TypeScript 2.0或更高版本。
+        "declarationDir": "./out/lib",
         // 指定输入文件的根目录。 用于通过--outDir控制输出目录结构。
-        "rootDir": "./",
+        // "rootDir": "./",
         // 重定向输出目录。
-        "outDir": "./out",
+        // "outDir": "./out/ts",
         // 解析非相对模块名的基准目录。查看 模块解析文档了解详情(https://www.tslang.cn/docs/handbook/module-resolution.html#base-url)。
-        "baseUrl": ".",
+        "baseUrl": "./",
         // 指定模块的路径，和 baseUrl 有关联，和 webpack 中 resolve.alias 配置一样（webpack 中已配置）
         "paths": {
             // 模块导入别名，指定后可以在文件之直接 import * from 'src/*';
-            "www/*": [
-                "./www/*"
-            ],
-            "assets/*": [
-                "./assets/*"
-            ],
-            "zain-ui/*": [
-                "./components/*"
-            ]
+            "www/*": ["./www/*"],
+            "assets/*": ["./assets/*"],
+            "zain-ui": ["components/index.ts"],
+            "zain-ui/esm/*": ["components/*"],
+            "zain-ui/lib/*": ["components/*"]
         }
-    }
+    },
+    // 指定要从编译中排除的文件列表。 “排除”属性仅影响通过“包含”属性包含的文件，而不影响“文件”属性。 需要TypeScript 2.0或更高版本。
+    "exclude": [".docz", "node_modules", "configs", "docs", "out", "src", "lib", "esm"]
 }

@@ -6102,10 +6102,10 @@ yargs@^13.3.2:
     y18n "^4.0.0"
     yargs-parser "^13.1.2"
 
-zain-ui@^1.0.5:
-  version "1.0.5"
-  resolved "https://registry.yarnpkg.com/zain-ui/-/zain-ui-1.0.5.tgz#8becb4555dbf60de016cb5e56702483e8f34d320"
-  integrity sha512-+BGZKW1Y7i4SJnnFDQTtsFe1fudDM3OOZ1/KzP4MGDXNxU1Fzkeqza4QunZWup4L0OwfKw2efwcoHAqfG45u/A==
+zain-ui@^1.0.8:
+  version "1.0.8"
+  resolved "https://registry.yarnpkg.com/zain-ui/-/zain-ui-1.0.8.tgz#9c6795ea4ef999dba855d176edb2ed0075318a5a"
+  integrity sha512-yPyE4QUM8IHQzOIg8W6aqQuEnOtuHb72N8UopKRF4ymc/2KYBZUNq/klIqoHIhabC2cO1SnfbgL3bjaD9BPWyw==
   dependencies:
     "@material-ui/core" "^4.11.0"
     "@types/react" "^16.9.47"

@@ -1,0 +1,20 @@
+{
+    // 要从其继承的基本配置文件的路径。 需要TypeScript 2.1或更高版本。
+    "extends": "./tsconfig.json",
+    // 指示TypeScript编译器如何编译.ts文件。
+    "compilerOptions": {
+        // 只处理“ .d.ts”声明文件。
+        "emitDeclarationOnly": true
+    },
+    "exclude": [
+        ".docz",
+        "node_modules",
+        "configs",
+        "docs",
+        "out",
+        "src",
+        "lib",
+        "www",
+        "esm"
+    ]
+}

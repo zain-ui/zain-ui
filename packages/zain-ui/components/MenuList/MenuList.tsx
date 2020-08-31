@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Popper, Grow, Paper, ClickAwayListener, MenuItem, MenuList as MuMenuList } from '@material-ui/core';
-import './MenuList.less';
+import './style/MenuList.less';
 import { MenuListPlacementEnum, MenuListItem, OpenMenuMouseEventEnum } from './';
 
 interface MenuListProps {

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { MenuList, MenuListItem } from 'zain-ui/MenuList';
+import { MenuList, MenuListItem } from 'zain-ui';
 import './MenuListDemo.less';
 
 /**
