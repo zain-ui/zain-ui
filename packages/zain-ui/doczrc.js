@@ -8,7 +8,7 @@ export default {
     /** GitHub Pages 指定在哪个子目录中部署文件（例如：'zain-ui.github.io/zain-ui' 需要填 '/zain-ui'） */
     base: '/',
     /** build 构建输出目标文件夹 */
-    dest: './build',
+    dest: './docs-build',
     /** 启用 Typescript */
     typescript: true
 }
