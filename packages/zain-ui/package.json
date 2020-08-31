@@ -19,15 +19,17 @@
         "url": "https://github.com/zain-ui/zain-ui/issues"
     },
     "funding": {
-      "type": "opencollective",
-      "url": "https://opencollective.com/zain-ui"
+        "type": "opencollective",
+        "url": "https://opencollective.com/zain-ui"
     },
     "main": "out/dist/zain-ui.min.js",
     "module": "out/es/zain-ui.js",
     "typings": "lib/zain-ui.d.ts",
     "scripts": {
-        "dev": "docz dev",
-        "build": "docz build"
+        "dev": "cross-env BUILD_ENV=development HOT_ENV=true webpack-dev-server --open --config ./configs/webpack.config.dev.babel.js",
+        "build": "cross-env BUILD_ENV=production HOT_ENV=false webpack --config ./configs/webpack.config.prod.babel.js",
+        "docz-dev": "docz dev",
+        "docz-build": "docz build"
     },
     "dependencies": {
         "@material-ui/core": "^4.11.0",
@@ -37,9 +39,35 @@
         "react-dom": "^16.13.1"
     },
     "devDependencies": {
+        "@babel/core": "^7.11.4",
+        "@babel/plugin-proposal-class-properties": "^7.10.4",
+        "@babel/plugin-transform-react-constant-elements": "^7.10.4",
+        "@babel/plugin-transform-react-inline-elements": "^7.10.4",
+        "@babel/preset-env": "^7.11.0",
+        "@babel/preset-react": "^7.10.4",
+        "@babel/preset-typescript": "^7.10.4",
+        "@babel/register": "^7.10.5",
+        "@pmmmwh/react-refresh-webpack-plugin": "^0.4.1",
+        "babel-loader": "^8.1.0",
+        "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
+        "clean-webpack-plugin": "^3.0.0",
+        "cross-env": "^7.0.2",
+        "css-loader": "^4.2.2",
         "docz": "^2.3.1",
+        "file-loader": "^6.0.0",
         "gatsby": "^2.24.52",
         "gatsby-plugin-less": "^4.0.3",
-        "gatsby-theme-docz": "^2.3.1"
+        "gatsby-theme-docz": "^2.3.1",
+        "html-webpack-plugin": "^4.3.0",
+        "less": "^3.12.2",
+        "less-loader": "^7.0.0",
+        "mini-css-extract-plugin": "^0.11.0",
+        "react-refresh": "^0.8.3",
+        "style-loader": "^1.2.1",
+        "webpack": "^4.44.1",
+        "webpack-bundle-analyzer": "^3.8.0",
+        "webpack-cli": "^3.3.12",
+        "webpack-dev-server": "^3.11.0",
+        "webpackbar": "^4.0.0"
     }
 }

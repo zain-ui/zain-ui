@@ -1,63 +1,50 @@
 import path from 'path';
 import webpack from 'webpack';
 import { CleanWebpackPlugin } from 'clean-webpack-plugin';
-import HtmlWebpackPlugin from 'html-webpack-plugin';
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 import WebpackBar from 'webpackbar';
-import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin'
 
 /**
- * 编译渲染进程、开发环境、web端
+ * 编译渲染进程、生产环境、web端
  * 文件名的后缀名必须是'*.babel.js'
  */
-
-const port = 9898;
-
 module.exports = {
-    mode: 'development',
+    mode: 'production',
     target: 'web',
-    devtool: 'inline-source-map',
     entry: {
-        index: [
-            path.join(__dirname, '..', 'src/index.tsx')
-        ]
+        'zain-ui': path.join(__dirname, '..', 'components/index.ts')
     },
     output: {
-        filename: './scripts/[name].js',
-        chunkFilename: './scripts/chunk-filename/[name].js'
+        filename: './dist/[name].min.js',
+        chunkFilename: './dist/chunk-filename/[name].js',
+        path: path.resolve(__dirname, '..', 'out')
     },
     resolve: {
         extensions: ['.ts', '.tsx', '.js', '.jsx'],
         alias: {
-            // 模块导入别名，指定后可以在文件之直接 import * from 'src/*';
-            src: path.resolve(__dirname, '../src/'),
+            // 模块导入别名，指定后可以在文件之直接 import * from 'www/*';
+            www: path.resolve(__dirname, '../www/'),
             // 模块导入别名，指定后可以在文件之直接 import * from 'assets/*';
-            assets: path.resolve(__dirname, '../assets/')
+            assets: path.resolve(__dirname, '../assets/'),
+            'zain-ui': path.resolve(__dirname, '../components/')
         }
     },
     plugins: [
         // 可视化 webpack 输出文件的大小(体积分析)
         new BundleAnalyzerPlugin({
-            analyzerPort: 8989
+            analyzerMode: 'static'
         }),
         /** 构建进度插件，（webpack 原装：new webpack.ProgressPlugin()） */
         new WebpackBar({
-            name: 'zain-ui-dev',
-            color: '#F44336'
+            name: 'zainote-prod-web-renderer',
+            color: '#F50057'
         }),
         // 清空编译后的输出文件夹
         new CleanWebpackPlugin({ cleanStaleWebpackAssets: false }),
-        // 拷贝所有窗口（BrowserWindow）的静态页面文件到输出文件夹，并添加 '<script src="./index.js"></script>'
-        new HtmlWebpackPlugin({
-            title: 'zainote',
-            filename: 'index.html',
-            template: path.join(__dirname, '..', 'src/page/index.html')
-        }),
-        new ReactRefreshWebpackPlugin(),
         // 使 web 端能获取到环境变量（必须用'process.env.BUILD_ENV'获取，只用'process'获取不到，而且会报错）
         new webpack.DefinePlugin({
-            'process.env.BUILD_ENV': JSON.stringify('development'),
-            'process.env.HOT_ENV': JSON.stringify('true'),
+            'process.env.BUILD_ENV': JSON.stringify('production'),
+            'process.env.HOT_ENV': JSON.stringify('false'),
             'process.env.PLAIN_HMR': JSON.stringify('false')
         })
     ],
@@ -130,15 +117,22 @@ module.exports = {
                     {
                         loader: 'file-loader',
                         options: {
-                            name: '[path][name].[ext]'
+                            name: '[path][name].[ext]',
+                            // eslint-disable-next-line @typescript-eslint/no-unused-vars
+                            outputPath: (url, resourcePath, context) => {
+                                // console.log('zain>>>>>url,resourcePath', url, resourcePath, path.basename(url));
+                                return `./assets/font/${path.basename(url)}`;
+                            },
+                            /** 设置文件输出目录、代码内生成的路径（相对 'out/client/renderer/page' 文件夹） */
+                            // eslint-disable-next-line @typescript-eslint/no-unused-vars
+                            publicPath: (url, resourcePath, context) => {
+                                // console.log('zain>>>>>url,resourcePath', url, resourcePath, path.basename(url));
+                                return `./assets/font/${path.basename(url)}`;
+                            }
                         }
                     }
                 ]
             }
         ]
-    },
-    devServer: {
-        port,
-        hot: true
     }
 };

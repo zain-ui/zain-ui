@@ -11,7 +11,7 @@ import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin'
  * 文件名的后缀名必须是'*.babel.js'
  */
 
-const port = 9898;
+const port = 6321;
 
 module.exports = {
     mode: 'development',
@@ -19,7 +19,7 @@ module.exports = {
     devtool: 'inline-source-map',
     entry: {
         index: [
-            path.join(__dirname, '..', 'src/index.tsx')
+            path.join(__dirname, '..', 'www/index.tsx')
         ]
     },
     output: {
@@ -29,10 +29,11 @@ module.exports = {
     resolve: {
         extensions: ['.ts', '.tsx', '.js', '.jsx'],
         alias: {
-            // 模块导入别名，指定后可以在文件之直接 import * from 'src/*';
-            src: path.resolve(__dirname, '../src/'),
+            // 模块导入别名，指定后可以在文件之直接 import * from 'www/*';
+            www: path.resolve(__dirname, '../www/'),
             // 模块导入别名，指定后可以在文件之直接 import * from 'assets/*';
-            assets: path.resolve(__dirname, '../assets/')
+            assets: path.resolve(__dirname, '../assets/'),
+            'zain-ui': path.resolve(__dirname, '../components/')
         }
     },
     plugins: [
@@ -51,7 +52,7 @@ module.exports = {
         new HtmlWebpackPlugin({
             title: 'zainote',
             filename: 'index.html',
-            template: path.join(__dirname, '..', 'src/page/index.html')
+            template: path.join(__dirname, '..', 'www/page/index.html')
         }),
         new ReactRefreshWebpackPlugin(),
         // 使 web 端能获取到环境变量（必须用'process.env.BUILD_ENV'获取，只用'process'获取不到，而且会报错）
