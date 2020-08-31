@@ -2,7 +2,7 @@
     "name": "zain-ui",
     "version": "1.0.0",
     "author": "ZainChen",
-    "description": "zain-ui",
+    "description": "zain-ui-demo",
     "license": "MIT",
     "repository": {
         "type": "git",
@@ -26,7 +26,8 @@
         "@types/react": "^16.9.47",
         "@types/react-dom": "^16.9.8",
         "react": "^16.13.1",
-        "react-dom": "^16.13.1"
+        "react-dom": "^16.13.1",
+        "zain-ui": "^1.0.5"
     },
     "devDependencies": {
         "@babel/core": "^7.11.4",
@@ -44,10 +45,10 @@
         "cross-env": "^7.0.2",
         "css-loader": "^4.2.2",
         "file-loader": "^6.0.0",
-        "html-webpack-plugin": "^4.3.0",
+        "html-webpack-plugin": "^4.4.1",
         "less": "^3.12.2",
         "less-loader": "^7.0.0",
-        "mini-css-extract-plugin": "^0.10.0",
+        "mini-css-extract-plugin": "^0.11.0",
         "react-refresh": "^0.8.3",
         "style-loader": "^1.2.1",
         "webpack": "^4.44.1",

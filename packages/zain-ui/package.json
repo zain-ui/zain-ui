@@ -1,13 +1,14 @@
 {
     "name": "zain-ui",
-    "version": "1.0.0",
+    "version": "1.0.5",
     "author": "ZainChen <2384439266@qq.com>",
     "description": "Zain UI",
     "title": "Zain UI",
     "keywords": [
         "zain-ui",
         "zain",
-        "ZainChen"
+        "ZainChen",
+        "material-ui"
     ],
     "license": "MIT",
     "repository": {
@@ -22,14 +23,12 @@
         "type": "opencollective",
         "url": "https://opencollective.com/zain-ui"
     },
-    "main": "out/dist/zain-ui.min.js",
-    "module": "out/es/zain-ui.js",
-    "typings": "lib/zain-ui.d.ts",
+    "main": "components/index.ts",
     "scripts": {
         "dev": "cross-env BUILD_ENV=development HOT_ENV=true webpack-dev-server --open --config ./configs/webpack.config.dev.babel.js",
-        "build": "cross-env BUILD_ENV=production HOT_ENV=false webpack --config ./configs/webpack.config.prod.babel.js",
-        "docz-dev": "docz dev",
-        "docz-build": "docz build"
+        "docz-dev": "rimraf .docz/* && rimraf .docz/.cache && docz dev",
+        "docz-build": "rimraf .docz/* && rimraf .docz/.cache && rimraf docs-build && docz build",
+        "docz-serve": "docz serve"
     },
     "dependencies": {
         "@material-ui/core": "^4.11.0",
