@@ -1,47 +1,42 @@
 {
     "name": "zain-ui",
-    "version": "1.0.8",
-    "author": "ZainChen <2384439266@qq.com>",
+    "version": "1.0.22",
     "description": "Zain UI",
-    "title": "Zain UI",
     "keywords": [
         "zain-ui",
         "zain",
         "ZainChen",
         "material-ui"
     ],
-    "license": "MIT",
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/zain-ui/zain-ui.git"
-    },
     "homepage": "https://github.com/zain-ui/zain-ui#readme",
     "bugs": {
         "url": "https://github.com/zain-ui/zain-ui/issues"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/zain-ui/zain-ui.git"
     },
     "funding": {
         "type": "opencollective",
         "url": "https://opencollective.com/zain-ui"
     },
+    "license": "MIT",
+    "author": "ZainChen <2384439266@qq.com>",
     "main": "out/lib/index.js",
-    "typings": "out/lib/index.d.ts",
     "module": "out/esm/index.js",
+    "typings": "out/lib/index.d.ts",
     "scripts": {
-        "www-dev": "cross-env WEB_ENV=true BUILD_ENV=development HOT_ENV=true webpack-dev-server --open --config ./configs/webpack.config.dev.babel.js",
-        "www-build": "cross-env WEB_ENV=true BUILD_ENV=production HOT_ENV=false webpack --config ./configs/webpack.config.prod.babel.js",
-        "docz-dev": "rimraf .docz/* && rimraf .docz/.cache && docz dev",
-        "docz-build": "rimraf .docz/* && rimraf .docz/.cache && rimraf ./out/docs && docz build",
-        "docz-serve": "docz serve",
-        "clean-lib": "rimraf ./out/lib ./out/esm",
+        "build": "yarn clean-lib && yarn build-types && gulp",
         "build-types": "tsc -p tsconfig.build.json && cpr ./out/lib ./out/esm",
-        "build": "yarn clean-lib && yarn build-types && gulp"
+        "clean-lib": "rimraf ./out/lib ./out/esm",
+        "docz-build": "rimraf .docz/* && rimraf .docz/.cache && rimraf ./out/docs && docz build",
+        "docz-dev": "rimraf .docz/* && rimraf .docz/.cache && docz dev",
+        "docz-serve": "docz serve",
+        "www-build": "cross-env WEB_ENV=true BUILD_ENV=production HOT_ENV=false webpack --config ./configs/webpack.config.prod.babel.js",
+        "www-dev": "cross-env WEB_ENV=true BUILD_ENV=development HOT_ENV=true webpack-dev-server --open --config ./configs/webpack.config.dev.babel.js"
     },
     "dependencies": {
-        "@material-ui/core": "^4.11.0",
-        "@types/react": "^16.9.47",
-        "@types/react-dom": "^16.9.8",
-        "react": "^16.13.1",
-        "react-dom": "^16.13.1"
+        "@babel/runtime": "^7.11.2"
     },
     "devDependencies": {
         "@babel/core": "^7.11.4",
@@ -53,8 +48,10 @@
         "@babel/preset-react": "^7.10.4",
         "@babel/preset-typescript": "^7.10.4",
         "@babel/register": "^7.10.5",
-        "@babel/runtime": "^7.11.2",
+        "@material-ui/core": "^4.11.0",
         "@pmmmwh/react-refresh-webpack-plugin": "^0.4.1",
+        "@types/react": "^16.9.47",
+        "@types/react-dom": "^16.9.8",
         "babel-loader": "^8.1.0",
         "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
         "clean-webpack-plugin": "^3.0.0",
@@ -75,6 +72,8 @@
         "less": "^3.12.2",
         "less-loader": "^7.0.0",
         "mini-css-extract-plugin": "^0.11.0",
+        "react": "^16.13.1",
+        "react-dom": "^16.13.1",
         "react-refresh": "^0.8.3",
         "rimraf": "^3.0.2",
         "style-loader": "^1.2.1",
@@ -84,5 +83,10 @@
         "webpack-cli": "^3.3.12",
         "webpack-dev-server": "^3.11.0",
         "webpackbar": "^4.0.0"
+    },
+    "peerDependencies": {
+        "@material-ui/core": "^4.11.0",
+        "react": "^16.13.1",
+        "react-dom": "^16.13.1"
     }
 }

@@ -7,10 +7,12 @@ out/docs
 out/www
 src
 www
+.browserslistrc
 babel.config.js
 doczrc.js
 gatsby-config.js
 gatsby-node.js
-yarn.lock
+gulpfile.js
 tsconfig.build.json
 tsconfig.json
+yarn.lock
