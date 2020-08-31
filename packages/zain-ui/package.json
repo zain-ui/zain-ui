@@ -26,8 +26,9 @@
     "main": "components/index.ts",
     "scripts": {
         "dev": "cross-env BUILD_ENV=development HOT_ENV=true webpack-dev-server --open --config ./configs/webpack.config.dev.babel.js",
+        "build": "cross-env BUILD_ENV=production HOT_ENV=false webpack --config ./configs/webpack.config.prod.babel.js",
         "docz-dev": "rimraf .docz/* && rimraf .docz/.cache && docz dev",
-        "docz-build": "rimraf .docz/* && rimraf .docz/.cache && rimraf docs-build && docz build",
+        "docz-build": "rimraf .docz/* && rimraf .docz/.cache && rimraf ./out/docs && docz build",
         "docz-serve": "docz serve"
     },
     "dependencies": {
