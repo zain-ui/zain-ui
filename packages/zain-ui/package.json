@@ -1,23 +1,30 @@
 {
     "name": "zain-ui",
     "version": "1.0.0",
-    "author": "ZainChen",
-    "description": "zain-ui",
-    "license": "MIT",
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/zainote/zain-ui.git"
-    },
-    "homepage": "https://github.com/zainote/zain-ui#readme",
-    "bugs": {
-        "url": "https://github.com/zainote/zain-ui/issues"
-    },
+    "author": "ZainChen <2384439266@qq.com>",
+    "description": "Zain UI",
+    "title": "Zain UI",
     "keywords": [
         "zain-ui",
         "zain",
         "ZainChen"
     ],
-    "main": "index.js",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/zain-ui/zain-ui.git"
+    },
+    "homepage": "https://github.com/zain-ui/zain-ui#readme",
+    "bugs": {
+        "url": "https://github.com/zain-ui/zain-ui/issues"
+    },
+    "funding": {
+      "type": "opencollective",
+      "url": "https://opencollective.com/zain-ui"
+    },
+    "main": "out/dist/zain-ui.min.js",
+    "module": "out/es/zain-ui.js",
+    "typings": "lib/zain-ui.d.ts",
     "scripts": {
         "dev": "docz dev",
         "build": "docz build"
