@@ -1,6 +1,6 @@
 {
     "name": "zain-ui",
-    "version": "1.0.22",
+    "version": "1.0.23",
     "description": "Zain UI",
     "keywords": [
         "zain-ui",
@@ -22,13 +22,13 @@
     },
     "license": "MIT",
     "author": "ZainChen <2384439266@qq.com>",
-    "main": "out/lib/index.js",
-    "module": "out/esm/index.js",
-    "typings": "out/lib/index.d.ts",
+    "main": "lib/index.js",
+    "module": "esm/index.js",
+    "typings": "lib/index.d.ts",
     "scripts": {
         "build": "yarn clean-lib && yarn build-types && gulp",
-        "build-types": "tsc -p tsconfig.build.json && cpr ./out/lib ./out/esm",
-        "clean-lib": "rimraf ./out/lib ./out/esm",
+        "build-types": "tsc -p tsconfig.build.json && cpr ./lib ./esm",
+        "clean-lib": "rimraf ./lib ./esm",
         "docz-build": "rimraf .docz/* && rimraf .docz/.cache && rimraf ./out/docs && docz build",
         "docz-dev": "rimraf .docz/* && rimraf .docz/.cache && docz dev",
         "docz-serve": "docz serve",

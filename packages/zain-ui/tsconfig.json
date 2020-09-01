@@ -28,7 +28,7 @@
         // 生成相应的d.ts文件。
         "declaration": true,
         // 指定生成的声明文件的输出目录。 需要TypeScript 2.0或更高版本。
-        "declarationDir": "./out/lib",
+        "declarationDir": "./lib",
         // 指定输入文件的根目录。 用于通过--outDir控制输出目录结构。
         // "rootDir": "./",
         // 重定向输出目录。

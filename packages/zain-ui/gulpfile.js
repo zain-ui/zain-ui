@@ -7,9 +7,9 @@ const through2 = require('through2');
 
 const paths = {
     dest: {
-        lib: './out/lib',
-        esm: './out/esm',
-        dist: './out/dist',
+        lib: './lib',
+        esm: './esm',
+        dist: './dist',
     },
     styles: 'components/**/*.less',
     scripts: [

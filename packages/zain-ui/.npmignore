@@ -3,8 +3,7 @@ components
 configs
 docs
 node_modules
-out/docs
-out/www
+out
 src
 www
 .browserslistrc
