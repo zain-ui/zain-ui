@@ -2,7 +2,6 @@
  * 防止 import 引用组件需要 '*\MenuList\MenuList'
  */
 export { default } from './MenuList';
-export { default as MenuList } from './MenuList';
 
 /**
  * 菜单列表，每项具体内容

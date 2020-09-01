@@ -30,18 +30,29 @@ module.exports = (api) => {
     // 编译朱家角，参数必须为 false （gulp.series 同步执行两个任务，参数为 false 才能监听到 process.env.BABEL_ENV 的变化）
     api.cache(web ? true : false);
 
-    return {
-        presets: [
-            // @babel/preset-env will automatically target our browserslist targets
-            ...(web ? [require('@babel/preset-env')] : [[require('@babel/preset-env'), { modules: commonjs ? 'commonjs' : false }]]),
-            require('@babel/preset-typescript'),
-            [require('@babel/preset-react'), { development }]
-        ],
-        plugins: [
-            // 支持类(class)中的静态函数、箭头函数...编译
-            [require('@babel/plugin-proposal-class-properties'), { loose: true }],
-            ...(web ? [] : [[require('@babel/plugin-transform-runtime'), { useESModules: !commonjs }]]),
-            ...(development ? developmentPlugins : productionPlugins)
-        ]
-    };
+    if (web) {
+        return {
+            presets: [
+                require('@babel/preset-env'),
+                require('@babel/preset-typescript'),
+                [require('@babel/preset-react'), { development }]
+            ],
+            plugins: [
+                [require('@babel/plugin-proposal-class-properties'), { loose: true }],
+                ...(development ? developmentPlugins : productionPlugins)
+            ]
+        };
+    } else {
+        return {
+            presets: [
+                [require('@babel/preset-env'), { modules: commonjs ? 'commonjs' : false }],
+                require('@babel/preset-typescript'),
+                require('@babel/preset-react')
+            ],
+            plugins: [
+                require('@babel/plugin-proposal-class-properties'),
+                [require('@babel/plugin-transform-runtime'), { useESModules: !commonjs }]
+            ]
+        }
+    }
 };

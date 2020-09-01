@@ -40,9 +40,8 @@
             // 模块导入别名，指定后可以在文件之直接 import * from 'src/*';
             "www/*": ["./www/*"],
             "assets/*": ["./assets/*"],
-            "zain-ui": ["components/index.ts"],
-            "zain-ui/esm/*": ["components/*"],
-            "zain-ui/lib/*": ["components/*"]
+            "zain-ui": ["./components/index.ts"],
+            "zain-ui/*": ["./components/*"]
         }
     },
     // 指定要从编译中排除的文件列表。 “排除”属性仅影响通过“包含”属性包含的文件，而不影响“文件”属性。 需要TypeScript 2.0或更高版本。
