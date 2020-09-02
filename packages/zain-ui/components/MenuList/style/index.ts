@@ -1,1 +1,1 @@
-import './MenuList.less';
+import './index.less';

@@ -1,4 +1,4 @@
 /**
- * 防止 import 引用组件需要 '*\Root\Root'
+ * 防止 import 引用组件需要 '*\Root'
  */
-export { Root } from 'www/components/Root/Root';
+export { Root } from './Root';

@@ -39,7 +39,6 @@
         "paths": {
             // 模块导入别名，指定后可以在文件之直接 import * from 'src/*';
             "www/*": ["./www/*"],
-            "assets/*": ["./assets/*"],
             "zain-ui": ["./components/index.ts"],
             "zain-ui/*": ["./components/*"]
         }

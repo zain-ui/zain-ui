@@ -31,8 +31,6 @@ module.exports = {
         alias: {
             // 模块导入别名，指定后可以在文件之直接 import * from 'www/*';
             www: path.resolve(__dirname, '../www/'),
-            // 模块导入别名，指定后可以在文件之直接 import * from 'assets/*';
-            assets: path.resolve(__dirname, '../assets/'),
             'zain-ui': path.resolve(__dirname, '../components/')
         }
     },
