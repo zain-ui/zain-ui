@@ -93,7 +93,7 @@ export const button = {
     color: 'muted',
     borderRadius: '0 0 3px 3px',
     '& ~ &': {
-        ml: 2,
+        ml: 2
     },
 }
 
