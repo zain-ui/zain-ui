@@ -27,7 +27,7 @@
         "@types/react-dom": "^16.9.8",
         "react": "^16.13.1",
         "react-dom": "^16.13.1",
-        "zain-ui": "^1.0.39"
+        "zain-ui": "^1.0.40"
     },
     "devDependencies": {
         "@babel/core": "^7.11.5",
