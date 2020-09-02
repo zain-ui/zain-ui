@@ -68,7 +68,6 @@ module.exports = (api) => {
             plugins: [
                 require('@babel/plugin-proposal-class-properties'),
                 [require('@babel/plugin-transform-runtime'), { useESModules: !commonjs }],
-                // 编译组件不能使用 babel-plugin-import
                 /**
                  * 组件按需导入：https://github.com/ant-design/babel-plugin-import
                  */
