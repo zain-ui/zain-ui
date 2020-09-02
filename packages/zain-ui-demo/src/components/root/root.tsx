@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { MenuListDemo } from 'src/components/MenuListDemo';
+import { MenuListDemo } from 'src/components/menuListDemo';
 
 export class Root extends Component {
     render(): JSX.Element {

@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { MenuList, MenuListItem } from 'zain-ui';
-import './MenuListDemo.less';
+import './menuListDemo.less';
 
 /**
  * 菜单列表组件测试
  */
-class MenuListDemo extends Component {
+export class MenuListDemo extends Component {
     /**
      * 菜单栏文件菜单
      */
@@ -67,5 +67,3 @@ class MenuListDemo extends Component {
         );
     }
 }
-
-export default MenuListDemo;
