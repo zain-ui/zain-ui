@@ -39,7 +39,12 @@ module.exports = (api) => {
             [require('babel-plugin-import'), {
                 // 组件库名
                 libraryName: "zain-ui",
-                // 组件库的根目录 default: lib
+                /**
+                 * 组件库的根目录，默认: lib
+                 * import { Button } from 'zain-ui';
+                 * 转换为->
+                 * var _button = require('zain-ui/button');
+                 */
                 libraryDirectory: "./",
                 // 是否将组件名称由驼峰转为破折号'-'
                 camel2DashComponentName: false,

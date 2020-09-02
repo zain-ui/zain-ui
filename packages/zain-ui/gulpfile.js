@@ -12,6 +12,8 @@ const paths = {
         dist: './dist',
     },
     styles: 'components/**/*.less',
+    package: 'package.json',
+    readme: 'README.md',
     scripts: [
         'components/**/*.{ts,tsx}',
         '!components/**/demo/*.{ts,tsx}',
@@ -102,7 +104,25 @@ function less2css() {
         .pipe(gulp.dest(paths.dest.esm));
 }
 
-const build = gulp.parallel(buildScripts, copyLess, less2css);
+/**
+ * 拷贝 package.json 文件到 lib 目录
+ */
+function copyPackage() {
+    return gulp
+        .src(paths.package)
+        .pipe(gulp.dest(paths.dest.lib));
+}
+
+/**
+ * 拷贝 README 文件到 lib 目录
+ */
+function copyReadme() {
+    return gulp
+        .src(paths.readme)
+        .pipe(gulp.dest(paths.dest.lib));
+}
+
+const build = gulp.parallel(buildScripts, copyLess, less2css, copyPackage, copyReadme);
 
 exports.build = build;
 

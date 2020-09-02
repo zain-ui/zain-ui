@@ -39,7 +39,23 @@ module.exports = (api) => {
             ],
             plugins: [
                 [require('@babel/plugin-proposal-class-properties'), { loose: true }],
-                ...(development ? developmentPlugins : productionPlugins)
+                ...(development ? developmentPlugins : productionPlugins),
+                /**
+                 * 组件按需导入：https://github.com/ant-design/babel-plugin-import
+                 */
+                [require('babel-plugin-import'), {
+                    // 组件库名
+                    libraryName: "@material-ui/core",
+                    /**
+                     * 组件库的根目录，默认: lib
+                     * import { Button } from '@material-ui/core';
+                     * 转换为->
+                     * var _button = require('@material-ui/core/esm/button');
+                     */
+                    libraryDirectory: "esm",
+                    // 是否将组件名称由驼峰转为破折号'-'
+                    camel2DashComponentName: false
+                }]
             ]
         };
     } else {
@@ -52,6 +68,7 @@ module.exports = (api) => {
             plugins: [
                 require('@babel/plugin-proposal-class-properties'),
                 [require('@babel/plugin-transform-runtime'), { useESModules: !commonjs }]
+                // 编译组件不能使用 babel-plugin-import
             ]
         }
     }
