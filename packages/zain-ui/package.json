@@ -36,7 +36,8 @@
         "www-dev": "cross-env WEB_ENV=true BUILD_ENV=development HOT_ENV=true webpack-dev-server --open --config ./configs/webpack.config.dev.babel.js"
     },
     "dependencies": {
-        "@babel/runtime": "^7.11.2"
+        "@babel/runtime": "^7.11.2",
+        "@material-ui/core": "^4.11.0"
     },
     "devDependencies": {
         "@babel/core": "^7.11.4",
@@ -48,7 +49,6 @@
         "@babel/preset-react": "^7.10.4",
         "@babel/preset-typescript": "^7.10.4",
         "@babel/register": "^7.10.5",
-        "@material-ui/core": "^4.11.0",
         "@pmmmwh/react-refresh-webpack-plugin": "^0.4.1",
         "@types/react": "^16.9.47",
         "@types/react-dom": "^16.9.8",

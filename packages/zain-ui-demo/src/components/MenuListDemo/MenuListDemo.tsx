@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { MenuList } from 'zain-ui';
+import { MenuList, MenuListItem } from 'zain-ui';
 import './MenuListDemo.less';
 
 /**
@@ -9,7 +9,7 @@ class MenuListDemo extends Component {
     /**
      * 菜单栏文件菜单
      */
-    getFileMenuListItem() {
+    getFileMenuListItem(): MenuListItem[] {
         return [
             { key: '1', leftText: 'New File', rightText: 'Ctrl+N' },
             { key: '2', leftText: 'New Window', rightText: 'Ctrl+Shift+N' },
@@ -52,7 +52,7 @@ class MenuListDemo extends Component {
         ];
     }
 
-    handleClickFileMenu(menuListItemReturn: any): void {
+    handleClickFileMenu(menuListItemReturn: MenuListItem): void {
         console.log('zain>>>>>menuListItemReturn', menuListItemReturn)
     }
 
@@ -61,7 +61,7 @@ class MenuListDemo extends Component {
             <div className="ZuiMenuList-test-root">
                 <MenuList
                     menuListItems={this.getFileMenuListItem()}
-                    onClickMenuListItem={(menuListItemReturn: any) => { this.handleClickFileMenu(menuListItemReturn); }}
+                    onClickMenuListItem={(menuListItemReturn: MenuListItem) => { this.handleClickFileMenu(menuListItemReturn); }}
                 >MenuList</MenuList>
             </div>
         );

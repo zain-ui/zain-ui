@@ -33,6 +33,25 @@ module.exports = (api) => {
         plugins: [
             // 支持类(class)中的静态函数、箭头函数...编译
             [require('@babel/plugin-proposal-class-properties'), { loose: true }],
+            /**
+             * 组件按需导入：https://github.com/ant-design/babel-plugin-import
+             */
+            [require('babel-plugin-import'), {
+                // 组件库名
+                libraryName: "zain-ui",
+                // 组件库的根目录 default: lib
+                libraryDirectory: "./",
+                // 是否将组件名称由驼峰转为破折号'-'
+                camel2DashComponentName: false,
+                /**
+                 * (style: true):
+                 * import { Button } from 'zain-ui';
+                 * 转换为->
+                 * var _button = require('zain-ui/button');
+                 * require('zain-ui/button/style');
+                 */
+                style: true
+            }],
             ...(development ? developmentPlugins : productionPlugins)
         ]
     };
