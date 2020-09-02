@@ -1,20 +1,47 @@
 ---
-name: Button 按钮
+name: Button
 menu: Components
 route: /components/button
 ---
 
-# Hello world
+# Button
 
-Hello, I'm a mdx file!
+Buttons allow users to take actions, and make choices, with a single tap.
+
+## Examples
 
 import {Playground} from 'docz'
+import { useThemeUI } from 'theme-ui'
 import Button from "@material-ui/core/Button";
 
-## Material UI Button
+<Playground>
+    <Button variant="contained">Default</Button>
+    <Button variant="contained" color="primary">
+    Primary
+    </Button>
+    <Button variant="contained" color="secondary">
+    Secondary
+    </Button>
+    <Button variant="contained" disabled>
+    Disabled
+    </Button>
+    <Button variant="contained" color="primary" href="#contained-buttons">
+    Link
+    </Button>
+</Playground>
+
+<br/><br/>
 
 <Playground>
-  <Button variant="contained" color="primary">
-    zain
-  </Button>
+    {() => {
+        const { colorMode } = useThemeUI()
+        return (
+            <Button
+                variant="contained"
+                color={colorMode === 'dark' ? 'primary' : 'default'}
+            >
+                {colorMode}
+            </Button>
+        )
+    }}
 </Playground>

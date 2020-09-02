@@ -74,9 +74,11 @@ export const Playground = ({ code, scope, language, wrapper, useScoping = false 
     const toggleCode = () => setShowingCode(s => !s)
 
     const openUrl = () => {
-        const urls = wrapper.split('|')
-        if (urls.length > 0) {
-            window.open(urls[0]);
+        if (wrapper) {
+            const urls = wrapper.split('|')
+            if (urls.length > 0) {
+                window.open(urls[0]);
+            }
         }
     }
 
