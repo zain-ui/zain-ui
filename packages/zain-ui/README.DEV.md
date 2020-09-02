@@ -40,6 +40,13 @@
 
 暂时没有发布 esm, package.json 中没有添加 "module": "esm/index.js",
 
+### 所有依赖包更到最新
+
+- 手动选择升级的依赖包，按空格键选择，a 键切换所有，i 键反选选择，空格选择单个，方向键上下切换选择
+```
+yarn upgrade-interactive --latest
+```
+
 ## GitHub Pages 部署问题
 
 GitHub Pages 域名大小写敏感：
