@@ -1,5 +1,14 @@
-# zain-ui
+<p align="center">
+    <a href="https://github.com/zain-ui/zain-ui" target="_blank">
+        <img width="150" src="./assets/logo/zain-ui-blue-1.svg" alt="Zain UI logo">
+    </a>
+</p>
 
-公用展示组件: 独立、复用性高、不包含任何业务逻辑
+<h1 align="center">Zain UI</h1>
 
-公用组件内部 `import` 使用相对路径，方便组件独立
+
+<div align="center">
+
+React UI, simple to use, powerful and beautiful. Based on Material UI development.
+
+</div>

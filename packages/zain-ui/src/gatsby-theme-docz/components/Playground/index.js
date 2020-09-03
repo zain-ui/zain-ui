@@ -116,8 +116,8 @@ export const Playground = ({ code, scope, language, wrapper, useScoping = false 
                                 <path fill="#67788A" fillRule="nonzero" stroke="none" strokeWidth="1" d="M0 19.9187087L9.87007874 19.9187087 4.12007874 34 23 13.9612393 13.0846457 13.9612393 18.7893701 0z"></path>
                             </svg>
                         </button>
-                        <button sx={styles.button} onClick={copyCode}>
-                            <Icons.Clipboard size={18} />
+                        <button title="复制代码" sx={styles.button} onClick={copyCode}>
+                            <Icons.Clipboard size={18}/>
                         </button>
                     </div>
                 </div>
