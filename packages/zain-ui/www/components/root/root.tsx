@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { ButtonDev } from 'www/components/buttonDev';
 import { MenuListDev } from 'www/components/menuListDev';
 
 export class Root extends Component {
@@ -6,6 +7,7 @@ export class Root extends Component {
         return (
             <div>
                 <MenuListDev />
+                <ButtonDev />
             </div>
         );
     }
