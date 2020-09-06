@@ -1,48 +1,45 @@
 import React from 'react';
-import clsx from 'clsx';
-import { Button as MuButton } from '@material-ui/core';
+import { Button, ButtonProps } from '@material-ui/core';
+import { useStyles } from './style';
 
-export type SizeType = "small" | "medium" | "large" | undefined;
-
-export interface ButtonProps {
-    children?: React.ReactNode;
-    className?: string;
-    disabled?: boolean;
-    size?: SizeType;
+export interface ZuiButtonProps extends ButtonProps {
 }
 
-const ButtonInternal: React.ForwardRefRenderFunction<unknown, ButtonProps> = (props: React.PropsWithChildren<ButtonProps>, ref) => {
-    const { children, className, disabled, size } = props;
+interface CompoundedComponent extends React.ForwardRefExoticComponent<ZuiButtonProps & React.RefAttributes<HTMLElement>> {
+}
 
-    const classes = clsx(className, 'ZuiButton-initial', {
-        ['ZuiButton-size-small']: size === 'small',
-        ['ZuiButton-size-middle']: size === 'medium',
-        ['ZuiButton-size-large']: size === 'large'
-    });
+const ZuiButtonInternal: React.ForwardRefRenderFunction<unknown, ZuiButtonProps> = (props, ref) => {
+    const {
+        ...other
+    } = props;
+
+    const classes = useStyles();
+
+    const buttonRef = (ref as any) || React.createRef<HTMLElement>();
 
     return (
-        <div className="ZuiButton-root">
-            <MuButton
-                className={classes}
-                disabled={disabled}
-                size={size}
-                variant="contained"
-            >
-                {children}
-            </MuButton>
-        </div>
+        /**
+         * 默认情况下，在页面中注入的 style会被插入到 <head> 元素的最后。 因此，相比其他样式表单，它们能够表现地更为具体。 如果您想要覆盖 Material-UI 的样式，请设置此属性。
+         * 设置了 injectFirst 后，style 会被插入到 <head> 元素的最前面。
+         * 这里不能加，只能在组件使用的时候加，统一设置 <StylesProvider injectFirst></StylesProvider>
+         */
+        <Button
+            // className={classes.zain}
+            // classes 属性可以定位到组件内部的样式，进行针对性修改
+            classes={{
+                root: classes.root
+            }}
+            ref={buttonRef}
+            {...other}
+        ></Button>
     )
 }
 
-const Button = React.forwardRef<unknown, ButtonProps>(ButtonInternal);
+const ZuiButton = React.forwardRef<unknown, ZuiButtonProps>(ZuiButtonInternal) as CompoundedComponent;
 
-Button.displayName = 'ButtonZain';
+ZuiButton.displayName = 'ZuiButton';
 
-Button.defaultProps = {
-    children: undefined,
-    className: '',
-    disabled: false,
-    size: undefined
+ZuiButton.defaultProps = {
 };
 
-export default Button;
+export default ZuiButton;
