@@ -40,6 +40,7 @@ const ZuiButton = React.forwardRef<unknown, ZuiButtonProps>(ZuiButtonInternal) a
 ZuiButton.displayName = 'ZuiButton';
 
 ZuiButton.defaultProps = {
+    disableElevation: true
 };
 
 export default ZuiButton;

@@ -74,8 +74,7 @@ export const preview = {
     margin: 0,
     padding: '20px',
     '& > .MuiZuiButton-root': {
-        mr: 3,
-        mb: 3
+        mr: 3
     }
 }
 
