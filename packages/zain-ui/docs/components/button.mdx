@@ -12,23 +12,47 @@ Buttons allow users to take actions, and make choices, with a single tap.
 
 import {Playground} from 'docz'
 import { useThemeUI } from 'theme-ui'
-import Button from "@material-ui/core/Button";
+import { Button } from "zain-ui/button";
 
-<Playground>
-    <Button variant="contained">Default</Button>
-    <Button variant="contained" color="primary">
-    Primary
-    </Button>
-    <Button variant="contained" color="secondary">
-    Secondary
-    </Button>
-    <Button variant="contained" disabled>
-    Disabled
-    </Button>
-    <Button variant="contained" color="primary" href="#contained-buttons">
-    Link
-    </Button>
+<Playground
+    language='tsx'
+    // demo 网址，可以通过组件旁边的按钮，链接到不同平台的 demo (多个平台间 '|' 号隔开，第一个按钮 codesandbox，第二个按钮 stackblitz)
+    wrapper='https://codesandbox.io/s/zain-ui-button-7xsri?file=/src/buttonDemo.tsx|https://stackblitz.com/edit/zain-ui-button?file=buttonDemo.tsx'
+>
+    <Button>Zain</Button>
+    <Button variant="outlined">outlined</Button>
+    <Button variant="contained" size='small'>small</Button>
+    <Button variant="contained" size='medium'>medium</Button>
+    <Button variant="contained" size='large'>large</Button>
+    <Button variant="contained" color="primary">Primary</Button>
+    <Button variant="contained" color="secondary">Secondary</Button>
+    <Button variant="contained" disabled>Disabled</Button>
+    <Button variant="contained" color="primary" href="#contained-buttons">Link</Button>
 </Playground>
+
+```tsx
+import React from 'react';
+import { Button } from 'zain-ui/button';
+
+/**
+ * 按钮组件开发
+ */
+export function ButtonDev(): JSX.Element {
+    return (
+        <div className="ZuiButton-demo-root">
+            <Button>Zain</Button>
+            <Button variant="outlined">outlined</Button>
+            <Button variant="contained" size='small'>small</Button>
+            <Button variant="contained" size='medium'>medium</Button>
+            <Button variant="contained" size='large'>large</Button>
+            <Button variant="contained" color="primary">Primary</Button>
+            <Button variant="contained" color="secondary">Secondary</Button>
+            <Button variant="contained" disabled>Disabled</Button>
+            <Button variant="contained" color="primary" href="#contained-buttons">Link</Button>
+        </div>
+    )
+}
+```
 
 <br/><br/>
 
@@ -45,3 +69,5 @@ import Button from "@material-ui/core/Button";
         )
     }}
 </Playground>
+
+## API

@@ -73,6 +73,10 @@ export const wrapperBorder = (content, showingCode) => {
 export const preview = {
     margin: 0,
     padding: '20px',
+    '& > .MuiZuiButton-root': {
+        mr: 3,
+        mb: 3
+    }
 }
 
 export const buttons = {

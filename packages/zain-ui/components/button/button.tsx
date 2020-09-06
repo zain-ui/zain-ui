@@ -5,7 +5,7 @@ import { useStyles } from './style';
 export interface ZuiButtonProps extends ButtonProps {
 }
 
-interface CompoundedComponent extends React.ForwardRefExoticComponent<ZuiButtonProps & React.RefAttributes<HTMLElement>> {
+interface ZuiButtonComponent extends React.ForwardRefExoticComponent<ZuiButtonProps & React.RefAttributes<HTMLElement>> {
 }
 
 const ZuiButtonInternal: React.ForwardRefRenderFunction<unknown, ZuiButtonProps> = (props, ref) => {
@@ -35,7 +35,7 @@ const ZuiButtonInternal: React.ForwardRefRenderFunction<unknown, ZuiButtonProps>
     )
 }
 
-const ZuiButton = React.forwardRef<unknown, ZuiButtonProps>(ZuiButtonInternal) as CompoundedComponent;
+const ZuiButton = React.forwardRef<unknown, ZuiButtonProps>(ZuiButtonInternal) as ZuiButtonComponent;
 
 ZuiButton.displayName = 'ZuiButton';
 
