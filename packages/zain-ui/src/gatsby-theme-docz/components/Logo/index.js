@@ -2,7 +2,7 @@
 import { jsx, Flex } from 'theme-ui'
 import { Link, useConfig } from 'docz'
 import * as styles from './styles'
-import logoImg from './zainote-orange-2.png'
+import logoImg from './zain-ui-blue-1.png'
 
 export const Logo = () => {
     const config = useConfig()

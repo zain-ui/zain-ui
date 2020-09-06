@@ -20,7 +20,7 @@ export const img = {
 
 export const span = {
     float: 'right',
-    paddingLeft: '12px',
+    paddingLeft: '16px',
     lineHeight: '32px',
     fontSize: '22px'
 }

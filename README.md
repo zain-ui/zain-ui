@@ -6,9 +6,8 @@
 
 <h1 align="center">Zain UI</h1>
 
-
 <div align="center">
 
-React UI, simple to use, powerful and beautiful. Based on Material UI development.
+This is the best practice of Material-UI and Ant Design (the most popular React UI framework in the world).
 
 </div>
