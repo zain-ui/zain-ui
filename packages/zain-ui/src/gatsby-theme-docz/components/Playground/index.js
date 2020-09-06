@@ -113,6 +113,9 @@ export const Playground = ({ code, scope, language, wrapper, useScoping = false 
                         )}
                     </Wrapper>
                     <div sx={styles.buttons}>
+                        {/* <button sx={styles.button} onClick={toggleCode}>
+                            <Icons.Edit size={18} />
+                        </button> */}
                         <button sx={styles.button} onClick={toggleCode}>
                             <Icons.Code size={18} />
                         </button>

@@ -4,16 +4,16 @@ menu: Components
 route: /components/button
 ---
 
+import {Playground} from 'docz'
+import { useThemeUI } from 'theme-ui'
+import { Props } from '../../src/zain-components-docz';
+import { Button } from 'zain-ui/button';
+
 # Button
 
 Buttons allow users to take actions, and make choices, with a single tap.
 
 ## Examples
-
-import {Playground} from 'docz'
-import { useThemeUI } from 'theme-ui'
-import { Props } from '../../src/zain-components-docz';
-import { Button } from 'zain-ui/button';
 
 <Playground
     language='tsx'
@@ -28,32 +28,8 @@ import { Button } from 'zain-ui/button';
     <Button variant="contained" color="primary">Primary</Button>
     <Button variant="contained" color="secondary">Secondary</Button>
     <Button variant="contained" disabled>Disabled</Button>
-    <Button variant="contained" color="primary" href="#contained-buttons">Link</Button>
+    <Button variant="contained" color="primary" href="#contained-buttons">Link</Button> 
 </Playground>
-
-```tsx
-import React from 'react';
-import { Button } from 'zain-ui/button';
-
-/**
- * 按钮组件开发
- */
-export function ButtonDev(): JSX.Element {
-    return (
-        <div className="ZuiButton-demo-root">
-            <Button>Zain</Button>
-            <Button variant="outlined">outlined</Button>
-            <Button variant="contained" size='small'>small</Button>
-            <Button variant="contained" size='medium'>medium</Button>
-            <Button variant="contained" size='large'>large</Button>
-            <Button variant="contained" color="primary">Primary</Button>
-            <Button variant="contained" color="secondary">Secondary</Button>
-            <Button variant="contained" disabled>Disabled</Button>
-            <Button variant="contained" color="primary" href="#contained-buttons">Link</Button>
-        </div>
-    )
-}
-```
 
 <br/><br/>
 
@@ -81,4 +57,4 @@ export function ButtonDev(): JSX.Element {
         { name: 'component', type: 'elementType', default: "'button'", description: 'The component used for the root node. Either a string to use a HTML element or a component.' },
         { name: 'disabled', type: 'bool', default: 'false', description: 'If true, the button will be disabled.' }
     ]}
->{Button}</Props>
+/>
