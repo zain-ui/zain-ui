@@ -8,6 +8,6 @@
 
 <div align="center">
 
-This is the best practice of Material-UI and Ant Design (the most popular React UI framework in the world).
+This is the best practice of Material-UI and Ant Design (the two most popular React UI frameworks in the world).
 
 </div>
