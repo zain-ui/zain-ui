@@ -1,0 +1,407 @@
+{
+    // 需要安装的 npm 包: 'yarn add eslint @typescript-eslint/parser @typescript-eslint/eslint-plugin eslint-plugin-react eslint-plugin-react-hooks --dev'
+    "root": true,
+    // 指定解析器，告诉 ESLint 加载已安装的插件包 @typescript-eslint/parser
+    "parser": "@typescript-eslint/parser",
+    // 指定脚本的运行环境
+    "env": {
+        "browser": true,
+        // 指定 node 脚本，可以让 process: NodeJS.Process 之类的变量，在不声明的情况下使用，通过 eslint 检测
+        "node": true,
+        "es2020": true
+    },
+    // 指定解析器选项
+    "parserOptions": {
+        "ecmaVersion": 11,
+        "sourceType": "module"
+    },
+    // "eslint:recommended" 是 eslint 的推荐配置
+    // "plugin:@typescript-eslint/recommended" 是插件包 @typescript-eslint/eslint-plugin 的推荐配置
+    // "plugin:react/recommended" 可以使 no-unused-vars 过滤 import 的警告
+    "extends": [
+        "eslint:recommended",
+        "plugin:@typescript-eslint/recommended",
+        "plugin:react/recommended",
+        "plugin:react-hooks/recommended"
+    ],
+    // 告诉 ESLint 加载已安装的插件包 @typescript-eslint/eslint-plugin
+    "plugins": [
+        "@typescript-eslint",
+        "react-hooks"
+    ],
+    "settings": {
+        // 指定 react 版本
+        "react": {
+            "version": "detect"
+        }
+    },
+    // 代码规范匹配规则
+    "rules": {
+        // rules: {
+        //     "规则名": [规则值, 规则配置]
+        // }
+
+        // "off" 或 2 -关闭规则
+        // "warn" 或 1 -将规则作为警告打开（不影响退出代码）
+        // "error" 或 2 -将规则作为错误打开（退出代码将为1）
+
+        // 禁用var，用 let 和 const 代替
+        "no-var": "error",
+        // 数组的 map、filter、sort 等方法，回调函数必须有返回值
+        "array-callback-return": "error",
+        // 函数名首行大写必须使用new方式调用，首行小写必须用不带new方式调用
+        "new-cap": "error",
+        // 不能有未定义的变量
+        "no-undef": "error",
+        // 在数组元素之间强制换行
+        "array-element-newline": ["error", "consistent"],
+        // 强制使用 function 声明或表达式的一致用法
+        "func-style": ["error", "declaration", { "allowArrowFunctions": true }],
+        // 函数括号前需要或不允许空格
+        "space-before-function-paren": ["error", {"anonymous": "always", "named": "never", "asyncArrow": "always"}],
+        // 判断 “for” 循环是否以正确的方向移动计数器。
+        "for-direction": "error",
+        // 禁止一元运算符 ++ 和 -- （允许一元运算符 ++ 并 -- 在事后（最终表达式）中 for 循环。）
+        "no-plusplus": ["error", { "allowForLoopAfterthoughts": true }],
+        // 一元运算符之前或之后需要空格或不允许空格
+        "space-unary-ops": "error",
+        // 禁止提前使用（定义前不得使用）
+        "no-use-before-define": "error",
+        // 检查 Hook 的规则
+        "react-hooks/rules-of-hooks": "error",
+
+        // 语句强制分号结尾
+        "semi": ["warn", "always"],
+        // 引号类型 `` "" ''
+        "quotes": ["warn", "single"],
+        // 禁止连续声明变量（例如：let a, b）
+        "one-var": ["warn", {"let": "never", "const": "never"}],
+        // 对多行注释强制使用特定样式
+        "multiline-comment-style": ["warn", "starred-block"],
+        // 在文件末尾要求或禁止换行（"always" （默认）强制文件以换行符（LF）结尾）
+        "eol-last": "warn",
+        // 在花括号内强制保持一致的间距
+        "object-curly-spacing": ["warn", "always", { "arraysInObjects": false, "objectsInObjects": false }],
+        // 要求或不允许以空格（制表符或制表符）开头的注释（带空格的注释）
+        "spaced-comment": "warn",
+        // 要求或禁止命名function表达式
+        "func-names": "warn",
+        // 需要使用箭头函数进行回调
+        "prefer-arrow-callback": "warn",
+        // 在行尾不允许尾随空格（无尾随空格）
+        "no-trailing-spaces": "warn",
+        // 不要在块周围省略花括号
+        "curly": "warn",
+        // 强制每行允许的最大语句数（默认最多一条语句）
+        "max-statements-per-line": "warn",
+        // 强制最大行长
+        "max-len": ["warn", { "code": 200 }],
+        // 强制执行最小和最大标识符长度（默认值是最少 2 个字符（{"min"：2}），可设置例外情况（"exceptions": ["i"]））
+        "id-length": ["warn", { "min": 2, "max": 35 }],
+        // 在打开和关闭数组括号之前强制换行
+        "array-bracket-newline": ["warn", "consistent"],
+        // 根据需求在对象文字属性名称周围加上引号
+        "quote-props": ["warn", "as-needed"],
+        // 强制执行一致的缩进
+        "indent": ["warn", 4, { "SwitchCase": 1 }],
+        // 不能有声明后未被使用的变量或参数
+        "@typescript-eslint/no-unused-vars": ["warn", {"vars": "all", "args": "after-used"}],
+        // 强制每个文件使用最大类(class)个数，设置为三个
+        "max-classes-per-file": ["warn", 5],
+        "arrow-body-style": ["warn", "always"],
+        // 强制在JSX属性（jsx引号）中一致使用双引号或单引号。（默认双引号）
+        "jsx-quotes": "warn",
+        // 禁止不必要的构造函数
+        "no-useless-constructor": "warn",
+        // 禁止多余空格
+        "no-multi-spaces": "warn",
+        // 大括号的风格(强制使用一种真正的花括号样式,允许块的打开和关闭大括号位于同一行)
+        "brace-style": ["warn", "1tbs", { "allowSingleLine": true }],
+        // 关键字前后强制保持一致间距
+        "keyword-spacing": "warn",
+        // 禁止空块语句（无空）
+        "no-empty": "warn",
+        // 强制使用最大功能长度
+        "max-lines-per-function": ["warn", {"max": 80, "skipBlankLines": true}],
+        // 强制将对象属性放在单独的行上
+        "object-property-newline": ["warn", { "allowAllPropertiesOnSameLine": true }],
+        // 不允许尾随逗号
+        "comma-dangle": "warn",
+        // 禁止使用未使用的表达式
+        "no-unused-expressions": ["warn"],
+        // 强制最大文件长度
+        "max-lines": ["warn", {"max": 300, "skipBlankLines": true, "skipComments": true}],
+        // 检查 effect 的依赖
+        "react-hooks/exhaustive-deps": ["warn", { "additionalHooks": "(useMyCustomHook|useMyOtherCustomHook)" }],
+        // 强制执行功能块中允许的最大语句数（最大语句）
+        "max-statements": ["warn", 15],
+        // 建议使用 const，如果从不重新分配变量，则使用const声明会更好。
+        "prefer-const": "warn",
+
+        // 不能有声明后未被使用的变量或参数（"@typescript-eslint/no-unused-vars" 开启了，这里不用开启）
+        "no-unused-vars": "off",
+        // 禁止使用 console
+        "no-console": "off",
+        // 在函数调用的参数之间强制换行
+        "function-call-argument-newline": "off",
+        // 在变量声明中要求或禁止初始化
+        "init-declarations": "off",
+        // 强制或禁止将注释的首字母大写
+        "capitalized-comments": "off",
+        // 在评论周围要求空白行
+        "lines-around-comment": "off",
+        // 要求或禁止类成员之间的空行
+        "lines-between-class-members": "off",
+        // 要求对对象键进行排序
+        "sort-keys": "off",
+        // 要求或禁止在块（填充块）内填充，在block语句和类的开头和结尾处不允许使用空行
+        "padded-blocks": "off",
+        // 排序导入模块
+        "sort-imports": "off",
+        // 强制 u 在 RegExp 上使用标志
+        "require-unicode-regexp": "off",
+        // 建议在正则表达式中使用命名捕获组
+        "prefer-named-capture-group": "off",
+        // 在点之前和之后强制换行
+        "dot-location": "off",
+        // 强制使用一致的换行符（"unix"（默认）强制使用 Unix 行尾：\n LF。"windows" 强制使用 Windows 行尾：\r\n CRLF。）
+        "linebreak-style": "off",
+        // 禁止非必要的括号
+        "no-extra-parens": "off",
+        // 禁止三元运算符
+        "no-ternary": "off",
+        // 强制或禁止三元表达式的操作数之间的换行符
+        "multiline-ternary": "off",
+        // 强制函数中使用类的 this，不使用类的 this 的函数应该转换为静态函数 static。
+        "class-methods-use-this": "off",
+        // 禁止在代码后插入内嵌注释
+        "no-inline-comments": "off",
+        // 禁止在标识符中悬挂下划线
+        "no-underscore-dangle": "off",
+        // 将默认参数强制为参数的最后一个。
+        "default-param-last": "off",
+        // 禁止使用undefined变量
+        "no-undefined": "off",
+        // 禁止使用没有明确含义的数字。最好将它们替换为命名常量（用 ignore 忽略数字）。
+        "no-magic-numbers": ["off", { "ignore": [0, 1], "detectObjects": false }],
+        // 关闭，需要使用 func: Function
+        "@typescript-eslint/ban-types": "off",
+        // 对操作员实施一致的换行符样式
+        "operator-linebreak": "off",
+        // 在方法链中的每个调用之后都需要换行
+        "newline-per-chained-call": "off",
+
+        "no-return-assign": 1,
+        "getter-return": 2,
+        "no-async-promise-executor": 2,
+        "no-await-in-loop": 2,
+        "no-compare-neg-zero": 2,
+        "no-cond-assign": 2,
+        "no-constant-condition": 2,
+        "no-control-regex": 2,
+        "no-debugger": 2,
+        "no-dupe-args": 2,
+        "no-dupe-else-if": 2,
+        "no-dupe-keys": 2,
+        "no-duplicate-case": 2,
+        "no-empty-character-class": 2,
+        "no-ex-assign": 2,
+        "no-extra-boolean-cast": 2,
+        "no-extra-semi": 2,
+        "no-func-assign": 2,
+        "no-import-assign": 2,
+        "no-inner-declarations": 2,
+        "no-invalid-regexp": 2,
+        "no-irregular-whitespace": 2,
+        "no-loss-of-precision": 2,
+        "no-misleading-character-class": 2,
+        "no-obj-calls": 2,
+        "no-promise-executor-return": 2,
+        "no-prototype-builtins": 2,
+        "no-regex-spaces": 2,
+        "no-setter-return": 2,
+        "no-sparse-arrays": 2,
+        "no-template-curly-in-string": 2,
+        "no-unexpected-multiline": 2,
+        "no-unreachable": 2,
+        "no-unreachable-loop": 2,
+        "no-unsafe-finally": 2,
+        "no-unsafe-negation": 2,
+        "no-useless-backreference": 2,
+        "require-atomic-updates": 2,
+        "use-isnan": 2,
+        "valid-typeof": 2,
+        "accessor-pairs": 2,
+        "block-scoped-var": 2,
+        "complexity": 2,
+        "consistent-return": 2,
+        "default-case": 2,
+        "default-case-last": 2,
+        "dot-notation": 2,
+        "eqeqeq": 2,
+        "grouped-accessor-pairs": 2,
+        "guard-for-in": 2,
+        "no-alert": 2,
+        "no-caller": 2,
+        "no-case-declarations": 2,
+        "no-constructor-return": 2,
+        "no-div-regex": 2,
+        "no-else-return": 2,
+        "no-empty-function": 2,
+        "no-empty-pattern": 2,
+        "no-eq-null": 2,
+        "no-eval": 2,
+        "no-extend-native": 2,
+        "no-extra-bind": 2,
+        "no-extra-label": 2,
+        "no-fallthrough": 2,
+        "no-floating-decimal": 2,
+        "no-global-assign": 2,
+        "no-implicit-coercion": 2,
+        "no-implicit-globals": 2,
+        "no-implied-eval": 2,
+        "no-invalid-this": 2,
+        "no-iterator": 2,
+        "no-labels": 2,
+        "no-lone-blocks": 2,
+        "no-loop-func": 2,
+        "no-multi-str": 2,
+        "no-new": 2,
+        "no-new-func": 2,
+        "no-new-wrappers": 2,
+        "no-octal": 2,
+        "no-octal-escape": 2,
+        "no-param-reassign": 2,
+        "no-proto": 2,
+        "no-redeclare": 2,
+        "no-restricted-properties": 2,
+        "no-return-await": 2,
+        "no-script-url": 2,
+        "no-self-assign": 2,
+        "no-self-compare": 2,
+        "no-sequences": 2,
+        "no-throw-literal": 2,
+        "no-unmodified-loop-condition": 2,
+        "no-unused-labels": 2,
+        "no-useless-call": 2,
+        "no-useless-catch": 2,
+        "no-useless-concat": 2,
+        "no-useless-escape": 2,
+        "no-useless-return": 2,
+        "no-void": 2,
+        "no-warning-comments": 2,
+        "no-with": 2,
+        "prefer-promise-reject-errors": 2,
+        "prefer-regex-literals": 2,
+        "radix": 2,
+        "require-await": 2,
+        "vars-on-top": 2,
+        "wrap-iife": 2,
+        "yoda": 2,
+        "strict": 2,
+        "no-delete-var": 2,
+        "no-label-var": 2,
+        "no-restricted-globals": 2,
+        "no-shadow": 2,
+        "no-shadow-restricted-names": 2,
+        "no-undef-init": 2,
+        "array-bracket-spacing": 2,
+        "block-spacing": 2,
+        "camelcase": 2,
+        "comma-spacing": 2,
+        "comma-style": 2,
+        "computed-property-spacing": 2,
+        "consistent-this": 2,
+        "func-call-spacing": 2,
+        "func-name-matching": 2,
+        "function-paren-newline": 2,
+        "id-denylist": 2,
+        "id-match": 2,
+        "implicit-arrow-linebreak": 2,
+        "key-spacing": 2,
+        "line-comment-position": 2,
+        "max-depth": 2,
+        "max-nested-callbacks": 2,
+        "max-params": 2,
+        "new-parens": 2,
+        "no-array-constructor": 2,
+        "no-bitwise": 2,
+        "no-continue": 2,
+        "no-lonely-if": 2,
+        "no-mixed-operators": 2,
+        "no-mixed-spaces-and-tabs": 2,
+        "no-multi-assign": 2,
+        "no-multiple-empty-lines": 2,
+        "no-negated-condition": 2,
+        "no-nested-ternary": 2,
+        "no-new-object": 2,
+        "no-restricted-syntax": 2,
+        "no-tabs": 2,
+        "no-unneeded-ternary": 2,
+        "no-whitespace-before-property": 2,
+        "nonblock-statement-body-position": 2,
+        "object-curly-newline": 2,
+        "one-var-declaration-per-line": 2,
+        "operator-assignment": 2,
+        "padding-line-between-statements": 2,
+        "prefer-exponentiation-operator": 2,
+        "prefer-object-spread": 2,
+        "semi-spacing": 2,
+        "semi-style": 2,
+        "sort-vars": 2,
+        "space-before-blocks": 2,
+        "space-in-parens": 2,
+        "space-infix-ops": 2,
+        "switch-colon-spacing": 2,
+        "template-tag-spacing": 2,
+        "unicode-bom": 2,
+        "wrap-regex": 2,
+        "arrow-parens": 2,
+        "arrow-spacing": 2,
+        "constructor-super": 2,
+        "generator-star-spacing": 2,
+        "no-class-assign": 2,
+        "no-confusing-arrow": 2,
+        "no-const-assign": 2,
+        "no-dupe-class-members": 2,
+        "no-duplicate-imports": 2,
+        "no-new-symbol": 2,
+        "no-restricted-exports": 2,
+        "no-restricted-imports": 2,
+        "no-this-before-super": 2,
+        "no-useless-computed-key": 2,
+        "no-useless-rename": 2,
+        "object-shorthand": 2,
+        "prefer-destructuring": 2,
+        "prefer-numeric-literals": 2,
+        "prefer-rest-params": 2,
+        "prefer-spread": 2,
+        "prefer-template": 2,
+        "require-yield": 2,
+        "rest-spread-spacing": 2,
+        "symbol-description": 2,
+        "template-curly-spacing": 2,
+        "yield-star-spacing": 2,
+        "react/display-name": 2,
+        "react/jsx-key": 2,
+        "react/jsx-no-comment-textnodes": 2,
+        "react/jsx-no-duplicate-props": 2,
+        "react/jsx-no-target-blank": 2,
+        "react/jsx-no-undef": 2,
+        "react/jsx-uses-react": 2,
+        "react/jsx-uses-vars": 2,
+        "react/no-children-prop": 2,
+        "react/no-danger-with-children": 2,
+        "react/no-deprecated": 2,
+        "react/no-direct-mutation-state": 2,
+        "react/no-find-dom-node": 2,
+        "react/no-is-mounted": 2,
+        "react/no-render-return-value": 2,
+        "react/no-string-refs": 2,
+        "react/no-unescaped-entities": 2,
+        "react/no-unknown-property": 2,
+        "react/prop-types": 2,
+        "react/react-in-jsx-scope": 2,
+        "react/require-render-return": 2
+    }
+}

@@ -9,7 +9,7 @@
         "noImplicitAny": true,
         // 生成相应的 .map文件。
         "sourceMap": false,
-        // 指定JSX代码生成：“保留”，“反应”或“反应本机”
+        // 指定JSX代码生成：“preserve”，“react”或“react-native”
         "jsx": "react",
         // 允许从模块进行默认导入而没有默认导出。 这不影响代码发出，仅影响类型检查。
         "allowSyntheticDefaultImports": true,
