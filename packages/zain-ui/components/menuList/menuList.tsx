@@ -1,40 +1,6 @@
 import React, { Component } from 'react';
 import { Popper, Grow, Paper, ClickAwayListener, MenuItem, MenuList as MuMenuList } from '@material-ui/core';
-import { MenuListPlacementEnum, MenuListItem, OpenMenuMouseEventEnum } from '.';
-
-interface MenuListProps {
-    /** 组件根元素新增 className */
-    className?: string;
-    /** 触发显示菜单列表的元素，通过子元素传递 */
-    children?: React.ReactNode;
-    /** 是否可以显示菜单列表组件（默认：true；值为 false 才会不显示） */
-    open?: boolean | undefined;
-    /** 菜单列表项具体内容 */
-    menuListItems?: MenuListItem[];
-    /** 菜单列表放置位置（默认：MenuListPlacementEnum.BOTTOM_START） */
-    placement?: MenuListPlacementEnum;
-    /** 打开菜单列表的鼠标事件（默认：OpenMenuMouseEventEnum.ON_MOUSE_DOWN） */
-    openMenuMouseEvent?: OpenMenuMouseEventEnum;
-    /** 菜单列表渲染到指定 DOM 元素内 */
-    container?: Element | React.Component | (() => React.ReactInstance);
-    /** 显示父组件的子菜单列表状态 */
-    handleOpenParentSubMenuList?: () => void;
-    /** 监听菜单列表（打开/关闭） */
-    onMenuListOpenClose?: (open: boolean | undefined) => void;
-    /** 监听单击每个菜单项 */
-    onClickMenuListItem?: (menuListItemReturn: MenuListItem) => void;
-}
-
-interface WindowMenuBarState {
-    /** 标记是否显示菜单列表 */
-    open: boolean | undefined;
-    /** 是否显示子菜单列表 */
-    mapOpenSubMenuList: Map<string, boolean>;
-    /** 控制含有子菜单的菜单项，具体某项 hover 状态 */
-    menuItemHasSubHoverkey: string | undefined;
-    /** ref 关联触发显示按钮和菜单列表 */
-    anchorRef: React.RefObject<HTMLDivElement>;
-}
+import { MenuListProps, WindowMenuBarState, MenuListPlacementEnum, MenuListItem, OpenMenuMouseEventEnum } from './type';
 
 /**
  * 菜单列表组件

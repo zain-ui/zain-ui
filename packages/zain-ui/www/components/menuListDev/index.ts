@@ -1,4 +1,4 @@
 /**
- * 防止 import 引用组件需要 '*\MenuListDemo\MenuListTest'
+ * 防止 import 引用组件需要 '*\MenuListDev\MenuListDev'
  */
 export { MenuListDev } from './menuListDev';

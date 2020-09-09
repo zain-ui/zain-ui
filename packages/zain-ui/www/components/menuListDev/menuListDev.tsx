@@ -54,7 +54,7 @@ export class MenuListDev extends Component {
     }
 
     handleClickFileMenu(menuListItemReturn: MenuListItem): void {
-        console.log('zain>>>>>menuListItemReturn', menuListItemReturn)
+        console.log('zain>>>>>menuListItemReturn', menuListItemReturn);
     }
 
     render(): JSX.Element {
