@@ -30,8 +30,10 @@ var ZuiButtonInternal = function ZuiButtonInternal(props, ref) {
      * 这里不能加，只能在组件使用的时候加，统一设置 <StylesProvider injectFirst></StylesProvider>
      */
     _react.default.createElement(_Button2.default, (0, _extends2.default)({
-      // className={classes.zain}
-      // classes 属性可以定位到组件内部的样式，进行针对性修改
+      /**
+       * className={classes.zain}
+       * classes 属性可以定位到组件内部的样式，进行针对性修改
+       */
       classes: {
         root: classes.root
       },
@@ -43,6 +45,8 @@ var ZuiButtonInternal = function ZuiButtonInternal(props, ref) {
 var ZuiButton = /*#__PURE__*/_react.default.forwardRef(ZuiButtonInternal);
 
 ZuiButton.displayName = 'ZuiButton';
-ZuiButton.defaultProps = {};
+ZuiButton.defaultProps = {
+  disableElevation: true
+};
 var _default = ZuiButton;
 exports.default = _default;

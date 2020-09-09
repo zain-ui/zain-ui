@@ -51,7 +51,7 @@
         "array-callback-return": "error",
         // 函数名首行大写必须使用new方式调用，首行小写必须用不带new方式调用
         "new-cap": "error",
-        // 不能有未定义的变量
+        // 不能有未定义的变量 (typescript-eslint(@typescript-eslint/parser, @typescript-eslint/eslint-plugin) ^4.1.0 有bug，暂时停留在版本 ^3.9.1)
         "no-undef": "error",
         // 在数组元素之间强制换行
         "array-element-newline": ["error", "consistent"],
@@ -65,7 +65,7 @@
         "no-plusplus": ["error", { "allowForLoopAfterthoughts": true }],
         // 一元运算符之前或之后需要空格或不允许空格
         "space-unary-ops": "error",
-        // 禁止提前使用（定义前不得使用）
+        // 禁止提前使用（定义前不得使用） (typescript-eslint(@typescript-eslint/parser, @typescript-eslint/eslint-plugin) ^4.1.0 有bug，暂时停留在版本 ^3.9.1)
         "no-use-before-define": "error",
         // 检查 Hook 的规则
         "react-hooks/rules-of-hooks": "error",
@@ -137,6 +137,8 @@
         "max-statements": ["warn", 15],
         // 建议使用 const，如果从不重新分配变量，则使用const声明会更好。
         "prefer-const": "warn",
+        // 禁止声明空接口（no-empty-interface）
+        "@typescript-eslint/no-empty-interface": "warn",
 
         // 不能有声明后未被使用的变量或参数（"@typescript-eslint/no-unused-vars" 开启了，这里不用开启）
         "no-unused-vars": "off",

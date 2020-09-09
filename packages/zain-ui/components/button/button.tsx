@@ -24,16 +24,18 @@ const ZuiButtonInternal: React.ForwardRefRenderFunction<unknown, ZuiButtonProps>
          * 这里不能加，只能在组件使用的时候加，统一设置 <StylesProvider injectFirst></StylesProvider>
          */
         <Button
-            // className={classes.zain}
-            // classes 属性可以定位到组件内部的样式，进行针对性修改
+            /**
+             * className={classes.zain}
+             * classes 属性可以定位到组件内部的样式，进行针对性修改
+             */
             classes={{
                 root: classes.root
             }}
             ref={buttonRef}
             {...other}
         ></Button>
-    )
-}
+    );
+};
 
 const ZuiButton = React.forwardRef<unknown, ZuiButtonProps>(ZuiButtonInternal) as ZuiButtonComponent;
 
