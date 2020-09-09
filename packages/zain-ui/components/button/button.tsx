@@ -2,11 +2,9 @@ import React from 'react';
 import { Button, ButtonProps } from '@material-ui/core';
 import { useStyles } from './style';
 
-export interface ZuiButtonProps extends ButtonProps {
-}
+export type ZuiButtonProps = ButtonProps
 
-interface ZuiButtonComponent extends React.ForwardRefExoticComponent<ZuiButtonProps & React.RefAttributes<HTMLElement>> {
-}
+type ZuiButtonComponent = React.ForwardRefExoticComponent<ZuiButtonProps & React.RefAttributes<HTMLElement>>
 
 const ZuiButtonInternal: React.ForwardRefRenderFunction<unknown, ZuiButtonProps> = (props, ref) => {
     const {

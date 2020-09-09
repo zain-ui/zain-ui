@@ -192,6 +192,7 @@
         "operator-linebreak": "off",
         // 在方法链中的每个调用之后都需要换行
         "newline-per-chained-call": "off",
+        "@typescript-eslint/no-explicit-any": "off",
 
         "no-return-assign": 1,
         "getter-return": 2,
