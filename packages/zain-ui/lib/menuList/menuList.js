@@ -39,7 +39,7 @@ var _defineProperty2 = _interopRequireDefault(require("@babel/runtime/helpers/de
 
 var _react = _interopRequireWildcard(require("react"));
 
-var _ = require(".");
+var _type = require("./type");
 
 function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = (0, _getPrototypeOf2.default)(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = (0, _getPrototypeOf2.default)(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return (0, _possibleConstructorReturn2.default)(this, result); }; }
 
@@ -131,7 +131,7 @@ var MenuList = /*#__PURE__*/function (_Component) {
         this.handleClose();
       }
 
-      if (!this.props.openMenuMouseEvent || this.props.openMenuMouseEvent === _.OpenMenuMouseEventEnum.ON_MOUSE_DOWN) {
+      if (!this.props.openMenuMouseEvent || this.props.openMenuMouseEvent === _type.OpenMenuMouseEventEnum.ON_MOUSE_DOWN) {
         this.handleToggle();
       }
     }
@@ -142,7 +142,7 @@ var MenuList = /*#__PURE__*/function (_Component) {
   }, {
     key: "handleToggleMouseUp",
     value: function handleToggleMouseUp() {
-      if (this.props.openMenuMouseEvent === _.OpenMenuMouseEventEnum.ON_MOUSE_UP) {
+      if (this.props.openMenuMouseEvent === _type.OpenMenuMouseEventEnum.ON_MOUSE_UP) {
         this.handleToggle();
       }
     }
@@ -153,7 +153,7 @@ var MenuList = /*#__PURE__*/function (_Component) {
   }, {
     key: "handleToggleClick",
     value: function handleToggleClick() {
-      if (this.props.openMenuMouseEvent === _.OpenMenuMouseEventEnum.ON_CLICK) {
+      if (this.props.openMenuMouseEvent === _type.OpenMenuMouseEventEnum.ON_CLICK) {
         this.handleToggle();
       }
     }
@@ -164,7 +164,7 @@ var MenuList = /*#__PURE__*/function (_Component) {
   }, {
     key: "handleOpenMouseEnter",
     value: function handleOpenMouseEnter() {
-      if (this.props.openMenuMouseEvent === _.OpenMenuMouseEventEnum.ON_MOUSE_ENTER) {
+      if (this.props.openMenuMouseEvent === _type.OpenMenuMouseEventEnum.ON_MOUSE_ENTER) {
         this.handleOpen();
       }
     }
@@ -284,7 +284,7 @@ var MenuList = /*#__PURE__*/function (_Component) {
   }, {
     key: "handleMenuItem",
     value: function handleMenuItem(menuListItem) {
-      var menuListItemReturn = new _.MenuListItem();
+      var menuListItemReturn = new _type.MenuListItem();
       menuListItemReturn = menuListItem;
 
       if (this.props.onClickMenuListItem) {
@@ -332,8 +332,8 @@ var MenuList = /*#__PURE__*/function (_Component) {
         className: "ZuiMenuList-sub-list ".concat(this.state.menuItemHasSubHoverkey === item.key ? 'ZuiMenuList-button-hover' : 'ZuiMenuList-sub-list'),
         open: this.state.mapOpenSubMenuList.get(item.key) === true,
         menuListItems: item.menuListItems,
-        placement: _.MenuListPlacementEnum.RIGHT_START,
-        openMenuMouseEvent: _.OpenMenuMouseEventEnum.ON_MOUSE_ENTER,
+        placement: _type.MenuListPlacementEnum.RIGHT_START,
+        openMenuMouseEvent: _type.OpenMenuMouseEventEnum.ON_MOUSE_ENTER,
         container: this.props.container ? this.props.container : this.state.anchorRef.current,
         handleOpenParentSubMenuList: function handleOpenParentSubMenuList() {
           return _this7.handleOpenSubMenuList(item.key);
@@ -396,7 +396,7 @@ var MenuList = /*#__PURE__*/function (_Component) {
         anchorEl: this.state.anchorRef.current,
         role: undefined,
         container: this.props.container ? this.props.container : this.state.anchorRef.current,
-        placement: this.props.placement ? this.props.placement : _.MenuListPlacementEnum.BOTTOM_START,
+        placement: this.props.placement ? this.props.placement : _type.MenuListPlacementEnum.BOTTOM_START,
         onMouseEnter: function onMouseEnter() {
           _this8.handleOpenParentSubMenu();
         }

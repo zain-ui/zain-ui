@@ -1,6 +1,4 @@
 import React from 'react';
-import { ButtonProps } from '@material-ui/core';
-export declare type ZuiButtonProps = ButtonProps;
 declare const ZuiButton: React.ForwardRefExoticComponent<{
     children?: React.ReactNode;
     color?: import("@material-ui/core").PropTypes.Color;
@@ -17,10 +15,7 @@ declare const ZuiButton: React.ForwardRefExoticComponent<{
     action?: React.Ref<import("@material-ui/core").ButtonBaseActions>;
     buttonRef?: React.Ref<unknown>;
     centerRipple?: boolean;
-    children?: React.ReactNode; /**
-     * className={classes.zain}
-     * classes 属性可以定位到组件内部的样式，进行针对性修改
-     */
+    children?: React.ReactNode;
     disabled?: boolean;
     disableRipple?: boolean;
     disableTouchRipple?: boolean;

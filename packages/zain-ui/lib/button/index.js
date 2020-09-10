@@ -1,6 +1,6 @@
 "use strict";
 
-var _interopRequireWildcard = require("@babel/runtime/helpers/interopRequireWildcard");
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
 
 Object.defineProperty(exports, "__esModule", {
   value: true
@@ -21,15 +21,17 @@ Object.defineProperty(exports, "Button", {
   }
 });
 
-var _button = _interopRequireWildcard(require("./button"));
+var _button = _interopRequireDefault(require("./button"));
 
-Object.keys(_button).forEach(function (key) {
+var _type = require("./type");
+
+Object.keys(_type).forEach(function (key) {
   if (key === "default" || key === "__esModule") return;
   if (Object.prototype.hasOwnProperty.call(_exportNames, key)) return;
   Object.defineProperty(exports, key, {
     enumerable: true,
     get: function get() {
-      return _button[key];
+      return _type[key];
     }
   });
 });
