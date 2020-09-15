@@ -1,6 +1,7 @@
-const path = require('path')
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const path = require('path');
 
-exports.onCreateWebpackConfig = args => {
+exports.onCreateWebpackConfig = (args) => {
     args.actions.setWebpackConfig({
         resolve: {
             /**
@@ -10,8 +11,9 @@ exports.onCreateWebpackConfig = args => {
              */
             modules: [path.resolve(__dirname, '..'), 'node_modules'],
             alias: {
-                'zain-ui': path.resolve(__dirname, '../components')
-            },
-        },
-    })
-}
+                'zain-ui': path.resolve(__dirname, '../components'),
+                src: path.resolve(__dirname, '../src')
+            }
+        }
+    });
+};

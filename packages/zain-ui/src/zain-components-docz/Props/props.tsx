@@ -1,5 +1,5 @@
 import React from 'react';
-import { useThemeUI } from 'theme-ui'
+import { useThemeUI } from 'theme-ui';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
@@ -32,10 +32,9 @@ export interface ZuiPropsProps {
     propsItems?: PropsItems[];
 }
 
-interface ZuiPropsComponent extends React.ForwardRefExoticComponent<ZuiPropsProps & React.RefAttributes<HTMLElement>> {
-}
+type ZuiPropsComponent = React.ForwardRefExoticComponent<ZuiPropsProps & React.RefAttributes<HTMLElement>>
 
-const ZuiPropsInternal: React.ForwardRefRenderFunction<unknown, ZuiPropsProps> = (props, ref) => {
+const ZuiPropsInternal: React.ForwardRefRenderFunction<unknown, ZuiPropsProps> = (props: React.PropsWithChildren<ZuiPropsProps>, ref) => {
     const {
         propsItems
     } = props;
@@ -62,22 +61,24 @@ const ZuiPropsInternal: React.ForwardRefRenderFunction<unknown, ZuiPropsProps> =
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                        {propsItems && propsItems.map((value: PropsItems, index: number) => (
-                            <TableRow key={index} hover={true}>
-                                <TableCell component="th" scope="row">
-                                    {value.name}
-                                </TableCell>
-                                <TableCell>{value.type}</TableCell>
-                                <TableCell>{value.default}</TableCell>
-                                <TableCell>{value.description}</TableCell>
-                            </TableRow>
-                        ))}
+                        {propsItems && propsItems.map((value: PropsItems, index: number) => {
+                            return (
+                                <TableRow key={index} hover={true}>
+                                    <TableCell component="th" scope="row">
+                                        {value.name}
+                                    </TableCell>
+                                    <TableCell>{value.type}</TableCell>
+                                    <TableCell>{value.default}</TableCell>
+                                    <TableCell>{value.description}</TableCell>
+                                </TableRow>
+                            );
+                        })}
                     </TableBody>
                 </Table>
             </TableContainer>
         </div>
-    )
-}
+    );
+};
 
 const ZuiProps = React.forwardRef<unknown, ZuiPropsProps>(ZuiPropsInternal) as ZuiPropsComponent;
 
