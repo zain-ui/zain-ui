@@ -1,19 +1,19 @@
 ---
-name: MenuList
+name: Menu
 menu: Components
-route: /components/menuList
+route: /components/menu
 ---
 
-# MenuList
+# Menu
 
-MenuList
+Menu
 
-import {Playground, Props} from 'docz'
+import {Playground} from 'docz'
+import { Props } from '../../src/zain-components-docz';
 import Button from "@material-ui/core/Button";
-import { MenuList, MenuListItem } from 'zain-ui/menuList';
-import 'zain-ui/menuList/style';
+import { Menu, MenuListItem } from 'zain-ui/menu';
 
-## MenuList
+## Menu
 
 <Playground
     language='tsx'
@@ -69,17 +69,25 @@ import 'zain-ui/menuList/style';
         }
         return (
             <>
-                <MenuList
+                <Menu
                     menuListItems={fileMenuListItem}
                     onClickMenuListItem={menuListItemReturn}
                 >
-                    <Button variant="contained" color="primary">Menu List</Button>
-                </MenuList>
+                    <Button variant="contained" color="primary">Menu</Button>
+                </Menu>
             </>
         )
     }}
 </Playground>
 
-## MenuList Props
+## Props
 
-<Props of={MenuList} />
+<Props
+    propsItems={[
+        { name: 'children', type: 'React.ReactNode', default: '', description: 'The content of the button.' },
+        { name: 'classes', type: 'object', default: '', description: 'Override or extend the styles applied to the component. See CSS API below for more details.' },
+        { name: 'color', type: "'default'| 'inherit'| 'primary'| 'secondary'", default: "'default'", description: 'The color of the component. It supports those theme colors that make sense for this component.' },
+        { name: 'component', type: 'elementType', default: "'button'", description: 'The component used for the root node. Either a string to use a HTML element or a component.' },
+        { name: 'disabled', type: 'bool', default: 'false', description: 'If true, the button will be disabled.' }
+    ]}
+/>

@@ -7,7 +7,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 var _exportNames = {
   Button: true,
-  MenuList: true
+  Menu: true
 };
 Object.defineProperty(exports, "Button", {
   enumerable: true,
@@ -15,10 +15,10 @@ Object.defineProperty(exports, "Button", {
     return _button.default;
   }
 });
-Object.defineProperty(exports, "MenuList", {
+Object.defineProperty(exports, "Menu", {
   enumerable: true,
   get: function get() {
-    return _menuList.default;
+    return _menu.default;
   }
 });
 
@@ -35,15 +35,15 @@ Object.keys(_button).forEach(function (key) {
   });
 });
 
-var _menuList = _interopRequireWildcard(require("./menuList"));
+var _menu = _interopRequireWildcard(require("./menu"));
 
-Object.keys(_menuList).forEach(function (key) {
+Object.keys(_menu).forEach(function (key) {
   if (key === "default" || key === "__esModule") return;
   if (Object.prototype.hasOwnProperty.call(_exportNames, key)) return;
   Object.defineProperty(exports, key, {
     enumerable: true,
     get: function get() {
-      return _menuList[key];
+      return _menu[key];
     }
   });
 });

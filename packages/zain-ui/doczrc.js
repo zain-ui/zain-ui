@@ -11,4 +11,4 @@ export default {
     dest: './out/docs',
     /** 启用 Typescript */
     typescript: true
-}
+};
