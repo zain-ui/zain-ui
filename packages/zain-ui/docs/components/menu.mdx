@@ -8,17 +8,17 @@ route: /components/menu
 
 Menu
 
-import {Playground} from 'docz'
+import {Playground} from 'docz';
 import { Props } from '../../src/zain-components-docz';
-import Button from "@material-ui/core/Button";
+import { Button } from 'zain-ui/button';
 import { Menu, MenuListItem } from 'zain-ui/menu';
 
-## Menu
+## Examples
 
 <Playground
     language='tsx'
     // demo 网址，可以通过组件旁边的按钮，链接到不同平台的 demo (多个平台间 '|' 号隔开，第一个按钮 codesandbox，第二个按钮 stackblitz)
-    wrapper='https://stackblitz.com/edit/zain-ui-menulist?file=menuListDemo.tsx|https://stackblitz.com/edit/zain-ui-menulist?file=menuListDemo.tsx'
+    wrapper='https://stackblitz.com/edit/zain-ui-menu?file=menuDemo.tsx|https://stackblitz.com/edit/zain-ui-menu?file=menuDemo.tsx'
 >
     {() => {
         /**
@@ -73,21 +73,25 @@ import { Menu, MenuListItem } from 'zain-ui/menu';
                     menuListItems={fileMenuListItem}
                     onClickMenuListItem={menuListItemReturn}
                 >
-                    <Button variant="contained" color="primary">Menu</Button>
+                    <Button variant="contained" size="small">Menu</Button>
                 </Menu>
             </>
         )
     }}
 </Playground>
 
-## Props
+## API
 
 <Props
     propsItems={[
-        { name: 'children', type: 'React.ReactNode', default: '', description: 'The content of the button.' },
-        { name: 'classes', type: 'object', default: '', description: 'Override or extend the styles applied to the component. See CSS API below for more details.' },
-        { name: 'color', type: "'default'| 'inherit'| 'primary'| 'secondary'", default: "'default'", description: 'The color of the component. It supports those theme colors that make sense for this component.' },
-        { name: 'component', type: 'elementType', default: "'button'", description: 'The component used for the root node. Either a string to use a HTML element or a component.' },
-        { name: 'disabled', type: 'bool', default: 'false', description: 'If true, the button will be disabled.' }
+        { name: 'className', type: 'string', default: '', description: '组件根元素新增 className' },
+        { name: 'children', type: 'React.ReactNode', default: '', description: '触发显示菜单列表的元素，通过子元素传递' },
+        { name: 'open', type: 'boolean | undefined', default: 'true', description: '是否可以显示菜单列表组件' },
+        { name: 'menuListItems', type: 'MenuListItem[]', default: '', description: '菜单列表项具体内容' },
+        { name: 'placement', type: 'MenuListPlacementEnum', default: 'MenuListPlacementEnum.BOTTOM_START', description: '菜单列表放置位置' },
+        { name: 'openMenuMouseEvent', type: 'OpenMenuMouseEventEnum', default: 'OpenMenuMouseEventEnum.ON_MOUSE_DOWN', description: '打开菜单列表的鼠标事件' },
+        { name: 'container', type: 'Element | React.Component | (() => React.ReactInstance)', default: '', description: '菜单列表渲染到指定 DOM 元素内' },
+        { name: 'onMenuListOpenClose', type: '(open: boolean | undefined) => void', default: '', description: '监听菜单列表（打开/关闭）' },
+        { name: 'onClickMenuListItem', type: '(menuListItemReturn: MenuListItem) => void', default: '', description: '监听单击每个菜单项' }
     ]}
 />
