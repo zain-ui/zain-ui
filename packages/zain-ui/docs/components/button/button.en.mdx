@@ -1,0 +1,61 @@
+---
+name: Button
+menu: Components
+locales: English
+route: /components/button/button.en
+---
+
+import {Playground} from 'docz';
+import { useThemeUI } from 'theme-ui';
+import { Props } from 'src/zain-components-docz';
+import { Button } from 'zain-ui/button';
+
+# Button
+
+Buttons allow users to take actions, and make choices, with a single tap.
+
+## Examples
+
+<Playground
+    language='tsx'
+    // demo 网址，可以通过组件旁边的按钮，链接到不同平台的 demo (多个平台间 '|' 号隔开，第一个按钮 codesandbox，第二个按钮 stackblitz)
+    wrapper='https://codesandbox.io/s/zain-ui-button-7xsri?file=/src/buttonDemo.tsx|https://stackblitz.com/edit/zain-ui-button?file=buttonDemo.tsx'
+>
+    <Button>Zain</Button>
+    <Button variant="outlined">outlined</Button>
+    <Button variant="contained" size='small'>small</Button>
+    <Button variant="contained" size='medium'>medium</Button>
+    <Button variant="contained" size='large'>large</Button>
+    <Button variant="contained" color="primary">Primary</Button>
+    <Button variant="contained" color="secondary">Secondary</Button>
+    <Button variant="contained" disabled>Disabled</Button>
+    <Button variant="contained" color="primary" href="#contained-buttons">Link</Button>
+</Playground>
+
+<br/><br/>
+
+<Playground>
+    {() => {
+        const { colorMode } = useThemeUI()
+        return (
+            <Button
+                variant="contained"
+                color={colorMode === 'dark' ? 'primary' : 'default'}
+            >
+                {colorMode}
+            </Button>
+        )
+    }}
+</Playground>
+
+## API
+
+<Props
+    propsItems={[
+        { name: 'children', type: 'React.ReactNode', default: '', description: 'The content of the button.' },
+        { name: 'classes', type: 'object', default: '', description: 'Override or extend the styles applied to the component. See CSS API below for more details.' },
+        { name: 'color', type: "'default'| 'inherit'| 'primary'| 'secondary'", default: "'default'", description: 'The color of the component. It supports those theme colors that make sense for this component.' },
+        { name: 'component', type: 'elementType', default: "'button'", description: 'The component used for the root node. Either a string to use a HTML element or a component.' },
+        { name: 'disabled', type: 'bool', default: 'false', description: 'If true, the button will be disabled.' }
+    ]}
+/>

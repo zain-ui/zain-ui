@@ -6,7 +6,12 @@ export default {
         'Home',
         'Getting Started',
         'Components',
-        'Readme'
+        '主页',
+        '快速上手',
+        '组件',
+        'ホーム',
+        'はじめに',
+        'コンポーネント'
     ],
     /** 忽略文件 */
     ignore: ['README.DEV.md'],
