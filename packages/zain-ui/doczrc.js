@@ -3,14 +3,17 @@ export default {
     title: 'Zain UI',
     /** 菜单 */
     menu: [
+        // 主页
         'Home',
-        'Getting Started',
-        'Components',
         '主页',
-        '快速上手',
-        '组件',
         'ホーム',
+        // 快速上手
+        'Getting Started',
+        '快速上手',
         'はじめに',
+        // 组件
+        'Components',
+        '组件',
         'コンポーネント'
     ],
     /** 忽略文件 */

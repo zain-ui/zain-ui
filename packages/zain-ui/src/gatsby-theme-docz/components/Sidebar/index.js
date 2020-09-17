@@ -9,7 +9,7 @@ import { NavSearch } from 'gatsby-theme-docz/src/components/NavSearch';
 import { NavLink } from 'gatsby-theme-docz/src/components/NavLink';
 import { NavGroup } from 'gatsby-theme-docz/src/components/NavGroup';
 
-import { useGlobalState } from '../Locales';
+import { localesGlobalState } from '../Locales';
 import * as styles from './styles';
 
 export const Sidebar = React.forwardRef((props, ref) => {
@@ -21,7 +21,7 @@ export const Sidebar = React.forwardRef((props, ref) => {
         setQuery(ev.target.value);
     };
 
-    const [language, setLanguage] = useGlobalState('languageGlobal');
+    const [language, setLanguage] = localesGlobalState.useGlobalState('languageGlobal');
 
     useEffect(() => {
         if (ref.current && currentDocRef.current) {
@@ -41,6 +41,7 @@ export const Sidebar = React.forwardRef((props, ref) => {
                     onChange={handleChange}
                 />
                 {/* {console.log('zain>>>>>language, menus', language, menus)} */}
+                {/* {console.log('zain>>>>>currentDoc', currentDoc)} */}
                 {menus &&
                     menus.map((menu) => {
                         if (!menu.route) {

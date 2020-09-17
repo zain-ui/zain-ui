@@ -1,13 +1,13 @@
-import moraga from 'typography-theme-moraga'
-import { toTheme } from '@theme-ui/typography'
-import { merge } from 'lodash/fp'
+import moraga from 'typography-theme-moraga';
+import { toTheme } from '@theme-ui/typography';
+import { merge } from 'lodash/fp';
 
-import * as modes from 'gatsby-theme-docz/src/theme/modes'
-import prism from 'gatsby-theme-docz/src/theme/prism'
-import styles from 'gatsby-theme-docz/src/theme/styles'
+import * as modes from 'gatsby-theme-docz/src/theme/modes';
+import prism from 'gatsby-theme-docz/src/theme/prism';
+import styles from 'gatsby-theme-docz/src/theme/styles';
 
-moraga.headerWeight = 700
-const typography = toTheme(moraga)
+moraga.headerWeight = 700;
+const typography = toTheme(moraga);
 
 export default merge(typography, {
     initialColorMode: 'light',
@@ -26,32 +26,32 @@ export default merge(typography, {
     colors: {
         ...modes.light,
         modes: {
-            dark: modes.dark,
-        },
+            dark: modes.dark
+        }
     },
     fonts: {
-        monospace: 'Inconsolata',
+        monospace: 'Inconsolata'
     },
     fontSizes: [12, 14, 16, 20, 24, 32, 48, 64],
     fontWeights: {
         body: 400,
         heading: 700,
-        bold: 700,
+        bold: 700
     },
     lineHeights: {
         body: 1.5,
-        heading: 1.125,
+        heading: 1.125
     },
     letterSpacings: {
         body: 'normal',
-        caps: '0.2em',
+        caps: '0.2em'
     },
     space: [0, 4, 8, 16, 32, 48, 64, 80, 100],
     radii: {
         square: 0,
         radius: 4,
-        rounded: 10,
+        rounded: 10
     },
     styles,
-    prism,
-})
+    prism
+});
