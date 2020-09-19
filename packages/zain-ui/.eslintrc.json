@@ -192,7 +192,10 @@
         "operator-linebreak": "off",
         // 在方法链中的每个调用之后都需要换行
         "newline-per-chained-call": "off",
+        // 禁止使用 any
         "@typescript-eslint/no-explicit-any": "off",
+        // 防止在React组件定义中缺少道具验证
+        "react/prop-types": "off",
 
         "no-return-assign": 1,
         "getter-return": 2,
@@ -403,7 +406,6 @@
         "react/no-string-refs": 2,
         "react/no-unescaped-entities": 2,
         "react/no-unknown-property": 2,
-        "react/prop-types": 2,
         "react/react-in-jsx-scope": 2,
         "react/require-render-return": 2
     }

@@ -13,7 +13,7 @@ export default {
         'はじめに',
         // 组件
         'Components',
-        '组件',
+        'Components 组件',
         'コンポーネント'
     ],
     /** 忽略文件 */

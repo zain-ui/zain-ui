@@ -1,6 +1,6 @@
 ---
 name: Button 按钮
-menu: 组件
+menu: Components 组件
 locales: Chinese
 route: /components/button/button.cn
 ---
@@ -12,27 +12,87 @@ import { Button } from 'zain-ui/button';
 
 # Button 按钮
 
-使用按钮，用户只需单击一下即可执行操作并做出选择。
+#### 使用按钮，只需单击一下即可执行操作并做出选择。
 
-## 例子
+## 文本按钮
 
 <Playground
     language='tsx'
     // demo 网址，可以通过组件旁边的按钮，链接到不同平台的 demo (多个平台间 '|' 号隔开，第一个按钮 codesandbox，第二个按钮 stackblitz)
     wrapper='https://codesandbox.io/s/zain-ui-button-7xsri?file=/src/buttonDemo.tsx|https://stackblitz.com/edit/zain-ui-button?file=buttonDemo.tsx'
 >
-    <Button>Zain</Button>
-    <Button variant="outlined">outlined</Button>
-    <Button variant="contained" size='small'>small</Button>
-    <Button variant="contained" size='medium'>medium</Button>
-    <Button variant="contained" size='large'>large</Button>
-    <Button variant="contained" color="primary">Primary</Button>
+    <Button>Default</Button>
+    <Button color="primary">Primary</Button>
+    <Button color="secondary">Secondary</Button>
+    <Button href="#文本按钮" color="primary">Link</Button>
+</Playground>
+
+## 空心按钮
+
+<Playground>
+    <Button variant="outlined">Default</Button>
+    <Button variant="outlined"color="primary">Primary</Button>
+    <Button variant="outlined" color="secondary">Secondary</Button>
+    <Button variant="outlined" href="#空心按钮" color="primary">Link</Button>
+</Playground>
+
+## 实心按钮
+
+<Playground>
+    <Button variant="contained">Default</Button>
+    <Button variant="contained"color="primary">Primary</Button>
     <Button variant="contained" color="secondary">Secondary</Button>
-    <Button variant="contained" disabled>Disabled</Button>
-    <Button variant="contained" color="primary" href="#contained-buttons">Link</Button>
+    <Button variant="contained" href="#实心按钮" color="primary">Link</Button>
+</Playground>
+
+## 立体按钮
+
+<Playground>
+    <Button elevation>Default</Button>
+    <Button elevation color="primary">Primary</Button>
+    <Button elevation color="secondary">Secondary</Button>
+    <Button elevation href="#立体按钮" color="primary">Link</Button>
+</Playground>
+
+## 禁用按钮
+
+<Playground>
+    <Button elevation>Default</Button>
+    <Button disabled elevation>Default</Button>
+    <br/><br/>
+    <Button elevation color="primary">Primary</Button>
+    <Button disabled elevation color="primary">Primary</Button>
+    <br/><br/>
+    <Button elevation color="secondary">Secondary</Button>
+    <Button disabled elevation color="secondary">Secondary</Button>
+    <br/><br/>
+    <Button elevation href="#立体按钮" color="primary">Link</Button>
+    <Button disabled elevation href="#立体按钮" color="primary">Link</Button>
+</Playground>
+
+## 按钮大小
+
+<Playground>
+    <Button size='small'>small</Button>
+    <Button size='medium' color="primary">medium</Button>
+    <Button size='large' color="secondary">large</Button>
+    <br/><br/>
+    <Button size='small' variant="outlined">small</Button>
+    <Button size='medium' variant="outlined" color="primary">medium</Button>
+    <Button size='large' variant="outlined" color="secondary">large</Button>
+    <br/><br/>
+    <Button size='small' variant="contained">small</Button>
+    <Button size='medium' variant="contained" color="primary">medium</Button>
+    <Button size='large' variant="contained" color="secondary">large</Button>
+    <br/><br/>
+    <Button size='small'elevation>small</Button>
+    <Button size='medium'elevation color="primary">medium</Button>
+    <Button size='large'elevation color="secondary">large</Button>
 </Playground>
 
 <br/><br/>
+
+## 动态样式
 
 <Playground>
     {() => {

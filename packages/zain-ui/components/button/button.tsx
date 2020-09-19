@@ -5,6 +5,9 @@ import { ZuiButtonComponent, ZuiButtonProps } from './type';
 
 const ZuiButtonInternal: React.ForwardRefRenderFunction<unknown, ZuiButtonProps> = (props, ref) => {
     const {
+        /** 是否启用按钮立体效果 */
+        elevation,
+        variant,
         ...other
     } = props;
 
@@ -27,6 +30,8 @@ const ZuiButtonInternal: React.ForwardRefRenderFunction<unknown, ZuiButtonProps>
                 root: classes.root
             }}
             ref={buttonRef}
+            variant={elevation ? 'contained' : variant}
+            disableElevation={!elevation}
             {...other}
         ></Button>
     );
@@ -37,7 +42,6 @@ const ZuiButton = React.forwardRef<unknown, ZuiButtonProps>(ZuiButtonInternal) a
 ZuiButton.displayName = 'ZuiButton';
 
 ZuiButton.defaultProps = {
-    disableElevation: true
 };
 
 export default ZuiButton;
