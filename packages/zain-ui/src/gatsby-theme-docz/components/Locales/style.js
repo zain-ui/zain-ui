@@ -50,7 +50,7 @@ export const useStyles = makeStyles(() => {
             color: '#000'
         },
         linkDark: {
-            color: '#FFF'
+            color: '#67788A'
         }
     });
 }, {

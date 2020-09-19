@@ -6,15 +6,20 @@ export const sublinkWrapper = {
     ml: 2
 };
 
-export const title = {
-    mb: 1,
-    fontSize: 2,
-    fontWeight: 500,
-    color: 'sidebar.navGroup',
-    cursor: 'pointer',
-    display: 'flex',
-    justifyContent: 'space-between',
-    alignItems: 'center'
+export const title = (colorMode) => {
+    return {
+        mb: 1,
+        fontSize: 2,
+        fontWeight: 500,
+        color: 'sidebar.navGroup',
+        cursor: 'pointer',
+        display: 'flex',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        '&:hover': {
+            backgroundColor: colorMode === 'dark' ? '#13161F' : 'rgba(0, 0, 0, 0.04)'
+        }
+    };
 };
 
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types

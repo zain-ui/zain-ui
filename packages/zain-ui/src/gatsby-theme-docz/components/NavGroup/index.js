@@ -1,17 +1,18 @@
 /** @jsx jsx */
-import { jsx } from 'theme-ui';
+import { jsx, useThemeUI } from 'theme-ui';
 import React from 'react';
 import { useCurrentDoc } from 'docz';
 
-import { NavLink } from 'gatsby-theme-docz/src/components/NavLink';
 import { ChevronDown } from 'gatsby-theme-docz/src/components/Icons';
 
+import { NavLink } from '../NavLink';
 import * as styles from './styles';
 
 /* eslint-disable react/prop-types */
 
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export const NavGroup = ({ item, sidebarRef }) => {
+    const { colorMode } = useThemeUI();
     const currentDoc = useCurrentDoc();
     const currentDocRef = React.useRef();
     const { name, menu } = item;
@@ -26,7 +27,7 @@ export const NavGroup = ({ item, sidebarRef }) => {
     }, []);
     return (
         <div sx={styles.wrapper} data-testid="nav-group">
-            <div sx={styles.title} onClick={toggleSubheadings}>
+            <div sx={styles.title(colorMode)} onClick={toggleSubheadings}>
                 {item.name}
                 <ChevronDown sx={styles.chevron({ active: subheadingsVisible })} />
             </div>

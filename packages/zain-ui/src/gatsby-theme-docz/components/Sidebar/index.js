@@ -6,9 +6,9 @@ import { jsx, Box } from 'theme-ui';
 import { useMenus, useCurrentDoc } from 'docz';
 
 import { NavSearch } from 'gatsby-theme-docz/src/components/NavSearch';
-import { NavLink } from 'gatsby-theme-docz/src/components/NavLink';
-import { NavGroup } from 'gatsby-theme-docz/src/components/NavGroup';
 
+import { NavLink } from '../NavLink';
+import { NavGroup } from '../NavGroup';
 import { localesGlobalState } from '../Locales';
 import * as styles from './styles';
 
