@@ -3,19 +3,54 @@ import { createStyles, makeStyles } from '@material-ui/core/styles';
 export const useStyles = makeStyles(() => {
     return createStyles({
         root: {
-            top: '-5px',
-            height: '10px',
-            marginRight: '8px'
+        },
+        button: {
+            minWidth: '39px',
+            height: '39px',
+            marginRight: '8px',
+            borderRadius: '9999px',
+            transition: '0s',
+            color: '#FFFFFF',
+            background: '#0B5FFF',
+            '&:hover': {
+                background: '#0B5FFF'
+            }
+        },
+        buttonDark: {
+            color: '#FFFFFF',
+            background: '#1FB6FF',
+            '&:hover': {
+                background: '#1FB6FF'
+            }
+        },
+        popper: {
+            zIndex: '999'
+        },
+        paper: {
+            opacity: '1 !important',
+            transform: 'none !important',
+            visibility: 'unset !important',
+            borderRadius: 0
+        },
+        paperDark: {
+            background: '#1D2330'
         },
         menuItem: {
             padding: 0
         },
+        menuItemDark: {
+            '&:hover': {
+                background: '#13161F'
+            }
+        },
         link: {
-            width: '100px',
-            padding: '5px 0',
-            paddingLeft: '16px',
+            width: '80px',
+            padding: '4px 16px',
             textDecoration: 'none',
-            color: 'rgba(0, 0, 0, 0.87)'
+            color: '#000'
+        },
+        linkDark: {
+            color: '#FFF'
         }
     });
 }, {

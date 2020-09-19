@@ -8,7 +8,7 @@ import { Logo } from '../Logo';
 import { Locales } from '../Locales';
 import * as styles from './styles';
 
-// eslint-disable-next-line max-lines-per-function
+// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export const Header = (props) => {
     // eslint-disable-next-line react/prop-types
     const { onOpen } = props;

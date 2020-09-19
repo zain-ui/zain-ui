@@ -3,11 +3,17 @@ import React, { useEffect } from 'react';
 import { useCurrentDoc } from 'docz';
 import { Link } from 'gatsby';
 import { createGlobalState } from 'react-hooks-global-state';
-import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
-import FormControl from '@material-ui/core/FormControl';
-import Select from '@material-ui/core/Select';
-import { jsx } from 'theme-ui';
+import Button from '@material-ui/core/Button';
+import Popper from '@material-ui/core/Popper';
+import Grow from '@material-ui/core/Grow';
+import Paper from '@material-ui/core/Paper';
+import ClickAwayListener from '@material-ui/core/ClickAwayListener';
+import MenuList from '@material-ui/core/MenuList';
+import { jsx, useThemeUI } from 'theme-ui';
+
+/* eslint-disable max-lines-per-function */
+/* eslint-disable max-statements */
 
 import { useStyles } from './style';
 
@@ -16,28 +22,63 @@ export const localesGlobalState = createGlobalState({ languageGlobal: 'English' 
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export const Locales = () => {
     const classes = useStyles();
-    const currentDoc = useCurrentDoc();
+    const { colorMode } = useThemeUI();
     const [open, setOpen] = React.useState(false);
+    const anchorRef = React.useRef(null);
+    const currentDoc = useCurrentDoc();
     const [route, setRoute] = React.useState({ english: '/', chinese: '/home/home.cn', japanese: '/home/home.jp' });
     const [language, setLanguage] = localesGlobalState.useGlobalState('languageGlobal');
 
-    const handleClose = () => {
+    const handleToggle = () => {
+        setOpen((prevOpen) => {
+            return !prevOpen;
+        });
+    };
+
+    const handleClose = (event) => {
+        if (anchorRef.current && anchorRef.current.contains(event.target)) {
+            return;
+        }
         setOpen(false);
     };
 
-    const handleOpen = () => {
-        setOpen(true);
-    };
+    function handleListKeyDown(event) {
+        if (event.key === 'Tab') {
+            event.preventDefault();
+            setOpen(false);
+        }
+    }
 
     /**
      * 切换多语言
      */
-    const handleLocales = (event) => {
-        setLanguage(event.target.value);
-        // console.log('zain>>>>>languageGlobal', event.target.value);
+    const handleLocales = (lang) => {
+        setLanguage(lang);
+        // console.log('zain>>>>>languageGlobal', language);
     };
 
+    /**
+     * 获取语言缩写
+     */
+    const languageAbbreviation = () => {
+        const lang = {
+            English: 'EN',
+            Chinese: 'CN',
+            Japanese: 'JP'
+        };
+        return lang[language];
+    };
+
+    // return focus to the button when we transitioned from !open -> open
+    const prevOpen = React.useRef(open);
     useEffect(() => {
+        if (prevOpen.current === true && open === false) {
+            if (anchorRef && anchorRef.current) {
+                anchorRef.current.focus();
+            }
+        }
+        prevOpen.current = open;
+
         // 组件第一次渲染后，设置当前页面语言
         if (currentDoc && currentDoc.locales) {
             setLanguage(currentDoc.locales);
@@ -60,34 +101,77 @@ export const Locales = () => {
                 });
             }
         }
-    }, [currentDoc, setLanguage]);
+    }, [currentDoc, open, setLanguage]);
 
     return (
-        <FormControl className={classes.root}>
-            <InputLabel
-                id="demo-controlled-open-select-label"
-                defaultChecked={true}
-                defaultValue="English"
-            >Locales</InputLabel>
-            <Select
-                labelId="demo-controlled-open-select-label"
-                id="demo-controlled-open-select"
+        <div className={classes.root}>
+            <Button
+                className={`${classes.button}${colorMode === 'dark' ? ` ${classes.buttonDark}` : ''}`}
+                ref={anchorRef}
+                aria-controls={open ? 'menu-list-grow' : undefined}
+                aria-haspopup="true"
+                onClick={handleToggle}
+            >{languageAbbreviation()}</Button>
+            <Popper
+                className={classes.popper}
                 open={open}
-                onClose={handleClose}
-                onOpen={handleOpen}
-                value={language}
-                onChange={handleLocales}
+                anchorEl={anchorRef.current}
+                role={undefined}
+                disablePortal
+                // placement="left-start"
             >
-                <MenuItem className={classes.menuItem} value="English">
-                    <Link className={classes.link} to={route.english}>English</Link>
-                </MenuItem>
-                <MenuItem className={classes.menuItem} value="Chinese">
-                    <Link className={classes.link} to={route.chinese}>中文</Link>
-                </MenuItem>
-                <MenuItem className={classes.menuItem} value="Japanese">
-                    <Link className={classes.link} to={route.japanese}>日本語</Link>
-                </MenuItem>
-            </Select>
-        </FormControl>
+                {({ TransitionProps, placement }) => {
+                    return (
+                        <Grow
+                            {...TransitionProps}
+                            style={{ transformOrigin: placement === 'bottom' ? 'center top' : 'center bottom' }}
+                        >
+                            <Paper className={`${classes.paper}${colorMode === 'dark' ? ` ${classes.paperDark}` : ''}`}>
+                                <ClickAwayListener onClickAway={handleClose}>
+                                    <MenuList autoFocusItem={open} id="menu-list-grow" onKeyDown={handleListKeyDown}>
+                                        <MenuItem
+                                            className={`${classes.menuItem}${colorMode === 'dark' ? ` ${classes.menuItemDark}` : ''}`}
+                                            onClick={(event) => {
+                                                handleClose(event);
+                                                handleLocales('English');
+                                            }}
+                                        >
+                                            <Link
+                                                className={`${classes.link}${colorMode === 'dark' ? ` ${classes.linkDark}` : ''}`}
+                                                to={route.english}
+                                            >English</Link>
+                                        </MenuItem>
+                                        <MenuItem
+                                            className={`${classes.menuItem}${colorMode === 'dark' ? ` ${classes.menuItemDark}` : ''}`}
+                                            onClick={(event) => {
+                                                handleClose(event);
+                                                handleLocales('Chinese');
+                                            }}
+                                        >
+                                            <Link
+                                                className={`${classes.link}${colorMode === 'dark' ? ` ${classes.linkDark}` : ''}`}
+                                                to={route.chinese}
+                                            >中文</Link>
+                                        </MenuItem>
+                                        <MenuItem
+                                            className={`${classes.menuItem}${colorMode === 'dark' ? ` ${classes.menuItemDark}` : ''}`}
+                                            onClick={(event) => {
+                                                handleClose(event);
+                                                handleLocales('Japanese');
+                                            }}
+                                        >
+                                            <Link
+                                                className={`${classes.link}${colorMode === 'dark' ? ` ${classes.linkDark}` : ''}`}
+                                                to={route.japanese}
+                                            >日本語</Link>
+                                        </MenuItem>
+                                    </MenuList>
+                                </ClickAwayListener>
+                            </Paper>
+                        </Grow>
+                    );
+                }}
+            </Popper>
+        </div>
     );
 };
