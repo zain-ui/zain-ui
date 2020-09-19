@@ -1,5 +1,7 @@
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
+
 export const wrapper = {
-    my: 3
+    // my: 3
 };
 
 export const sublinkWrapper = {
@@ -8,7 +10,8 @@ export const sublinkWrapper = {
 
 export const title = (colorMode) => {
     return {
-        mb: 1,
+        // mb: 1,
+        py: 2,
         fontSize: 2,
         fontWeight: 500,
         color: 'sidebar.navGroup',
