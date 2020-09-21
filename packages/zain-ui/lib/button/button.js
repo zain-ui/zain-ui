@@ -11,12 +11,16 @@ var _Button2 = _interopRequireDefault(require("@material-ui/core/Button"));
 
 var _extends2 = _interopRequireDefault(require("@babel/runtime/helpers/extends"));
 
+var _objectWithoutProperties2 = _interopRequireDefault(require("@babel/runtime/helpers/objectWithoutProperties"));
+
 var _react = _interopRequireDefault(require("react"));
 
 var _style = require("./style");
 
 var ZuiButtonInternal = function ZuiButtonInternal(props, ref) {
-  var other = (0, _extends2.default)({}, props);
+  var elevation = props.elevation,
+      variant = props.variant,
+      other = (0, _objectWithoutProperties2.default)(props, ["elevation", "variant"]);
   var classes = (0, _style.useStyles)();
 
   var buttonRef = ref || /*#__PURE__*/_react.default.createRef();
@@ -37,7 +41,9 @@ var ZuiButtonInternal = function ZuiButtonInternal(props, ref) {
       classes: {
         root: classes.root
       },
-      ref: buttonRef
+      ref: buttonRef,
+      variant: elevation ? 'contained' : variant,
+      disableElevation: !elevation
     }, other))
   );
 };
@@ -45,8 +51,6 @@ var ZuiButtonInternal = function ZuiButtonInternal(props, ref) {
 var ZuiButton = /*#__PURE__*/_react.default.forwardRef(ZuiButtonInternal);
 
 ZuiButton.displayName = 'ZuiButton';
-ZuiButton.defaultProps = {
-  disableElevation: true
-};
+ZuiButton.defaultProps = {};
 var _default = ZuiButton;
 exports.default = _default;

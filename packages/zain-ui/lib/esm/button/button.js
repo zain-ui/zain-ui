@@ -1,10 +1,13 @@
 import _Button from "@material-ui/core/Button";
 import _extends from "@babel/runtime/helpers/esm/extends";
+import _objectWithoutProperties from "@babel/runtime/helpers/esm/objectWithoutProperties";
 import React from 'react';
 import { useStyles } from './style';
 
 var ZuiButtonInternal = function ZuiButtonInternal(props, ref) {
-  var other = _extends({}, props);
+  var elevation = props.elevation,
+      variant = props.variant,
+      other = _objectWithoutProperties(props, ["elevation", "variant"]);
 
   var classes = useStyles();
   var buttonRef = ref || /*#__PURE__*/React.createRef();
@@ -24,14 +27,14 @@ var ZuiButtonInternal = function ZuiButtonInternal(props, ref) {
       classes: {
         root: classes.root
       },
-      ref: buttonRef
+      ref: buttonRef,
+      variant: elevation ? 'contained' : variant,
+      disableElevation: !elevation
     }, other))
   );
 };
 
 var ZuiButton = /*#__PURE__*/React.forwardRef(ZuiButtonInternal);
 ZuiButton.displayName = 'ZuiButton';
-ZuiButton.defaultProps = {
-  disableElevation: true
-};
+ZuiButton.defaultProps = {};
 export default ZuiButton;

@@ -392,6 +392,9 @@ var Menu = /*#__PURE__*/function (_Component) {
             transformOrigin: placement === 'bottom' ? 'center top' : 'center bottom'
           }
         }), /*#__PURE__*/React.createElement(_Paper, {
+          style: {
+            visibility: 'unset'
+          },
           className: _this8.props.classes.paper,
           square: true
         }, /*#__PURE__*/React.createElement(_ClickAwayListener, {

@@ -14,11 +14,12 @@ export var styles = createStyles({
   },
   paper: {
     /**
-     * 依赖包 bug;
+     * 依赖包 bug;（visibility: 'unset !important'）
      * csstype 需要支持 string;
-     * 可手动修改 node_modules/csstype/index.d.ts 文件: export type VisibilityProperty = Globals | "collapse" | "hidden" | "visible" | string;
+     * 需要手动修改 node_modules/csstype/index.d.ts 文件: export type VisibilityProperty = Globals | "collapse" | "hidden" | "visible" | string;
+     * 所以，这条样式卸写在组件 style 中
      */
-    visibility: 'unset !important',
+    // visibility: 'unset !important',
     opacity: '1 !important',
     transform: 'none !important',
     color: '#9da5b4',

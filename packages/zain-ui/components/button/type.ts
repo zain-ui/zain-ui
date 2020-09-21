@@ -5,10 +5,16 @@ import { ButtonProps } from '@material-ui/core';
  */
 // export type ZuiButtonProps = ButtonProps;
 
-export interface ZuiButtonProps extends ButtonProps {
+export type ZuiButtonProps = ButtonProps & {
     /** 是否启用按钮立体效果 */
     elevation?: boolean;
-}
+};
+
+// 用 interface, 编辑器 stackblitz 提示属性异常
+// export interface ZuiButtonProps extends ButtonProps {
+//     /** 是否启用按钮立体效果 */
+//     elevation?: boolean;
+// }
 
 /**
  * 按钮组件类型
