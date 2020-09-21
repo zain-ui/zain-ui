@@ -274,7 +274,13 @@ class Menu extends Component<MenuListProps, WindowMenuBarState> {
                                 {...TransitionProps}
                                 style={{ transformOrigin: placement === 'bottom' ? 'center top' : 'center bottom' }}
                             >
-                                <Paper className={this.props.classes.paper} square>
+                                <Paper style={{ visibility: 'unset' }} className={this.props.classes.paper} square>
+                                    {/*
+                                    * 依赖包 bug; style={{ visibility: 'unset' }}
+                                    * csstype 需要支持 string;
+                                    * 需要手动修改 node_modules/csstype/index.d.ts 文件: export type VisibilityProperty = Globals | "collapse" | "hidden" | "visible" | string;
+                                    * 所以，这条样式卸写在组件 style 中
+                                    */ }
                                     <ClickAwayListener
                                         mouseEvent="onMouseDown"
                                         onClickAway={(event: React.MouseEvent<Document, MouseEvent>) => {
