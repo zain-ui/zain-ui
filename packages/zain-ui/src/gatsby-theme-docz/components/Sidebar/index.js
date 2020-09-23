@@ -44,6 +44,16 @@ export const Sidebar = React.forwardRef((props, ref) => {
                 {/* {console.log('zain>>>>>currentDoc', currentDoc)} */}
                 {menus &&
                     menus.map((menu) => {
+                        // eslint-disable-next-line multiline-comment-style
+                        // 不显示 README.md 文件，Home 文件作为替代
+                        // README.md 文件，直接显示, 通过路由判断 (route: "/readme")
+                        // if (menu.route && menu.route === '/readme') {
+                        //     return (
+                        //         <NavLink key={menu.id} item={menu}>
+                        //             {menu.name}
+                        //         </NavLink>
+                        //     );
+                        // }
                         if (!menu.route) {
                             // 包含子菜单的目录，判断子菜单语言，非当前语言的菜单不显示
                             if (menu && menu.menu && menu.menu.length > 0 && menu.menu[0].locales !== language) {
