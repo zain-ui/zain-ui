@@ -44,5 +44,5 @@
         }
     },
     // 指定要从编译中排除的文件列表。 “排除”属性仅影响通过“包含”属性包含的文件，而不影响“文件”属性。 需要TypeScript 2.0或更高版本。
-    "exclude": [".docz", "node_modules", "configs", "docs", "out", "src", "lib", "esm"]
+    "exclude": ["node_modules", "configs", "docs", "out", "src", "lib", "esm"]
 }

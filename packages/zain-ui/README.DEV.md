@@ -14,13 +14,7 @@
 
 ### 文档开发
 
-`yarn docz-dev` 启动组件文档开发页面
-
-- 文档编写和组件调试目录: `./components` 和 `./docs`
-
-`yarn docz-build` 编译组件文档页面
-
-- 编译后的文件夹: `./out/docs`
+.....
 
 ## 发布组件
 

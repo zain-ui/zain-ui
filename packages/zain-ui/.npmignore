@@ -1,4 +1,3 @@
-.docz
 components
 configs
 docs
@@ -8,9 +7,6 @@ src
 www
 .browserslistrc
 babel.config.js
-doczrc.js
-gatsby-config.js
-gatsby-node.js
 gulpfile.js
 tsconfig.build.json
 tsconfig.json

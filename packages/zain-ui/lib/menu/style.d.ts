@@ -9,4 +9,4 @@ export interface stylesType {
     buttonHover?: string;
     splitLine?: string;
 }
-export declare const styles: Record<"root" | "paper" | "popper" | "leftText" | "rightText" | "subList" | "subIcon" | "buttonHover" | "splitLine", import("@material-ui/styles").CSSProperties | import("@material-ui/styles").CreateCSSProperties<{}> | ((props: {}) => import("@material-ui/styles").CreateCSSProperties<{}>)>;
+export declare const styles: import("@material-ui/styles").StyleRules<{}, "root" | "paper" | "popper" | "leftText" | "rightText" | "subList" | "subIcon" | "buttonHover" | "splitLine">;
